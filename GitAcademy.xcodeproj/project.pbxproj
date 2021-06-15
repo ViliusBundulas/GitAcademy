@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBBB2678943500AA05BA /* AppDelegate.swift */; };
 		251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBBD2678943500AA05BA /* SceneDelegate.swift */; };
-		251AEBC02678943500AA05BA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBBF2678943500AA05BA /* ContentView.swift */; };
 		251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBC12678943500AA05BA /* GitAcademy.xcdatamodeld */; };
 		251AEBC52678943700AA05BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251AEBC42678943700AA05BA /* Assets.xcassets */; };
 		251AEBC82678943700AA05BA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 251AEBC72678943700AA05BA /* Preview Assets.xcassets */; };
 		251AEBCB2678943700AA05BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 251AEBC92678943700AA05BA /* LaunchScreen.storyboard */; };
 		251AEBD62678943700AA05BA /* GitAcademyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBD52678943700AA05BA /* GitAcademyTests.swift */; };
 		251AEBE12678943700AA05BA /* GitAcademyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBE02678943700AA05BA /* GitAcademyUITests.swift */; };
+		251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBEE2678946E00AA05BA /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		251AEBB82678943500AA05BA /* GitAcademy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitAcademy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AEBBB2678943500AA05BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		251AEBBD2678943500AA05BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		251AEBBF2678943500AA05BA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		251AEBC22678943500AA05BA /* GitAcademy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GitAcademy.xcdatamodel; sourceTree = "<group>"; };
 		251AEBC42678943700AA05BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		251AEBC72678943700AA05BA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -51,6 +50,7 @@
 		251AEBDC2678943700AA05BA /* GitAcademyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GitAcademyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		251AEBE02678943700AA05BA /* GitAcademyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAcademyUITests.swift; sourceTree = "<group>"; };
 		251AEBE22678943700AA05BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		251AEBEE2678946E00AA05BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,12 +103,12 @@
 			children = (
 				251AEBBB2678943500AA05BA /* AppDelegate.swift */,
 				251AEBBD2678943500AA05BA /* SceneDelegate.swift */,
-				251AEBBF2678943500AA05BA /* ContentView.swift */,
 				251AEBC42678943700AA05BA /* Assets.xcassets */,
 				251AEBC92678943700AA05BA /* LaunchScreen.storyboard */,
 				251AEBCC2678943700AA05BA /* Info.plist */,
 				251AEBC12678943500AA05BA /* GitAcademy.xcdatamodeld */,
 				251AEBC62678943700AA05BA /* Preview Content */,
+				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
 			);
 			path = GitAcademy;
 			sourceTree = "<group>";
@@ -269,9 +269,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
 				251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
-				251AEBC02678943500AA05BA /* ContentView.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
