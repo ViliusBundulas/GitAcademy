@@ -16,6 +16,10 @@
 		251AEBD62678943700AA05BA /* GitAcademyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBD52678943700AA05BA /* GitAcademyTests.swift */; };
 		251AEBE12678943700AA05BA /* GitAcademyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBE02678943700AA05BA /* GitAcademyUITests.swift */; };
 		251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBEE2678946E00AA05BA /* LoginViewController.swift */; };
+		251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBF4267A1D7800AA05BA /* CoordinatorProtocol.swift */; };
+		251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBF6267A2CDB00AA05BA /* MainCoordinator.swift */; };
+		251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */; };
+		251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		251AEBE02678943700AA05BA /* GitAcademyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAcademyUITests.swift; sourceTree = "<group>"; };
 		251AEBE22678943700AA05BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		251AEBEE2678946E00AA05BA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		251AEBF4267A1D7800AA05BA /* CoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorProtocol.swift; sourceTree = "<group>"; };
+		251AEBF6267A2CDB00AA05BA /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
+		251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +89,10 @@
 		251AEBAF2678943500AA05BA = {
 			isa = PBXGroup;
 			children = (
+				251AEBF9267BFD1F00AA05BA /* Factories */,
+				251AEBF3267A1C9900AA05BA /* Coordinators */,
+				251AEBF12678B65200AA05BA /* Scenes */,
+				251AEBF02678962600AA05BA /* Common */,
 				251AEBBA2678943500AA05BA /* GitAcademy */,
 				251AEBD42678943700AA05BA /* GitAcademyTests */,
 				251AEBDF2678943700AA05BA /* GitAcademyUITests */,
@@ -101,14 +113,11 @@
 		251AEBBA2678943500AA05BA /* GitAcademy */ = {
 			isa = PBXGroup;
 			children = (
-				251AEBBB2678943500AA05BA /* AppDelegate.swift */,
-				251AEBBD2678943500AA05BA /* SceneDelegate.swift */,
 				251AEBC42678943700AA05BA /* Assets.xcassets */,
 				251AEBC92678943700AA05BA /* LaunchScreen.storyboard */,
 				251AEBCC2678943700AA05BA /* Info.plist */,
 				251AEBC12678943500AA05BA /* GitAcademy.xcdatamodeld */,
 				251AEBC62678943700AA05BA /* Preview Content */,
-				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
 			);
 			path = GitAcademy;
 			sourceTree = "<group>";
@@ -137,6 +146,49 @@
 				251AEBE22678943700AA05BA /* Info.plist */,
 			);
 			path = GitAcademyUITests;
+			sourceTree = "<group>";
+		};
+		251AEBF02678962600AA05BA /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBBB2678943500AA05BA /* AppDelegate.swift */,
+				251AEBBD2678943500AA05BA /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		251AEBF12678B65200AA05BA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBF22678B65D00AA05BA /* Views */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		251AEBF22678B65D00AA05BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		251AEBF3267A1C9900AA05BA /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBF4267A1D7800AA05BA /* CoordinatorProtocol.swift */,
+				251AEBF6267A2CDB00AA05BA /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		251AEBF9267BFD1F00AA05BA /* Factories */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */,
+				251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */,
+			);
+			path = Factories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,8 +321,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */,
+				251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
+				251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */,
 				251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */,
+				251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
 			);
