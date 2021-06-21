@@ -11,6 +11,3 @@ class DependencyContainer {
     
 }
 
-extension DependencyContainer: ViewControllersFactory {
-    
-}

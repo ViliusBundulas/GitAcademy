@@ -21,8 +21,15 @@ class MainCoordinator: CoordinatorProtocol {
     
     func start() {
         let viewController = LoginViewController()
+        viewController.coordinator = self
         navigationController.pushViewController(viewController, animated: true)
     }
     
+    func startTestViewController() {
+        let vc = viewControllersFactory.makeTestViewController()
+//        vc.coordinator = self
+        
+        navigationController.pushViewController(vc, animated: true)
+    }
     
 }

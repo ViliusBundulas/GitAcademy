@@ -8,5 +8,13 @@
 import Foundation
 
 protocol ViewControllersFactory {
+    func makeTestViewController() -> TestViewController
+}
+
+extension DependencyContainer: ViewControllersFactory {
+    func makeTestViewController() -> TestViewController {
+        return TestViewController()
+    }
+    
     
 }

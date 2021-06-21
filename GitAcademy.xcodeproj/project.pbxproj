@@ -20,6 +20,7 @@
 		251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBF6267A2CDB00AA05BA /* MainCoordinator.swift */; };
 		251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */; };
 		251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */; };
+		251AEC00267FDBDC00AA05BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFF267FDBDC00AA05BA /* TestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		251AEBF6267A2CDB00AA05BA /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
 		251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
+		251AEBFF267FDBDC00AA05BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
+				251AEBFF267FDBDC00AA05BA /* TestViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */,
 				251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
+				251AEC00267FDBDC00AA05BA /* TestViewController.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
