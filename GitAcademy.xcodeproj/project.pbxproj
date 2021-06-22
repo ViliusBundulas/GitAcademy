@@ -21,6 +21,7 @@
 		251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */; };
 		251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */; };
 		251AEC00267FDBDC00AA05BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFF267FDBDC00AA05BA /* TestViewController.swift */; };
+		2552A90E26829D1D00956BC7 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2552A90D26829D1D00956BC7 /* NetworkRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		251AEBFF267FDBDC00AA05BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		2552A90D26829D1D00956BC7 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 		251AEBAF2678943500AA05BA = {
 			isa = PBXGroup;
 			children = (
+				2552A90C26829CFF00956BC7 /* Model */,
 				251AEBF9267BFD1F00AA05BA /* Factories */,
 				251AEBF3267A1C9900AA05BA /* Coordinators */,
 				251AEBF12678B65200AA05BA /* Scenes */,
@@ -192,6 +195,14 @@
 				251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		2552A90C26829CFF00956BC7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2552A90D26829D1D00956BC7 /* NetworkRequest.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -328,6 +339,7 @@
 				251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
 				251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */,
+				2552A90E26829D1D00956BC7 /* NetworkRequest.swift in Sources */,
 				251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */,
 				251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
