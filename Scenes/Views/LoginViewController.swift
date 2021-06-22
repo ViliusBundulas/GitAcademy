@@ -8,6 +8,10 @@
 import UIKit
 import AuthenticationServices
 
+struct TokenBag {
+    let accessToken: String
+}
+
 class LoginViewController: UIViewController {
     
     weak var coordinator: MainCoordinator?
@@ -17,10 +21,10 @@ class LoginViewController: UIViewController {
         
         view.backgroundColor = .systemPink
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             // Use the URL and callback scheme specified by the authorization provider.
-            guard let authURL = URL(string: "https://github.com/login/oauth/authorize") else { return }
-            let scheme = "testas"
+            guard let authURL = URL(string: "https://github.com/login/oauth/authorize?client_id=Iv1.25694f93f3fe6645") else { return }
+            let scheme = "gitacademyviliusbundulas"
 
             // Initialize the session.
             let session = ASWebAuthenticationSession(url: authURL, callbackURLScheme: scheme)
@@ -30,10 +34,14 @@ class LoginViewController: UIViewController {
 
                 // The callback URL format depends on the provider. For this example:
                 //   exampleauth://auth?token=1234
-                let queryItems = URLComponents(string: callbackURL.absoluteString)?.queryItems
-                let token = queryItems?.filter({ $0.name == "token" }).first?.value
+                let components = URLComponents(string: callbackURL.absoluteString)?.queryItems
+                let code = components?.filter({ $0.name == "code" }).first?.value
                 
-                print(callbackURL)
+                guard let authCode = code else { return }
+                
+                
+                
+                print(authCode)
             }
             
             session.presentationContextProvider = self
