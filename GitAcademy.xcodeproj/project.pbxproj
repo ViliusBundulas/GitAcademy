@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,7 +21,15 @@
 		251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */; };
 		251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */; };
 		251AEC00267FDBDC00AA05BA /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFF267FDBDC00AA05BA /* TestViewController.swift */; };
-		2552A90E26829D1D00956BC7 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2552A90D26829D1D00956BC7 /* NetworkRequest.swift */; };
+		25B5E6FF268330C500F4997E /* GitHubConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E6FE268330C500F4997E /* GitHubConstants.swift */; };
+		25B5E702268331C400F4997E /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 25B5E701268331C400F4997E /* Alamofire */; };
+		25B5E70626833A5600F4997E /* GitHubAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E70526833A5600F4997E /* GitHubAccessToken.swift */; };
+		25B5E7092683448F00F4997E /* SecureStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E7082683448F00F4997E /* SecureStore.swift */; };
+		25B5E70B2683559E00F4997E /* SecureStoreError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E70A2683559E00F4997E /* SecureStoreError.swift */; };
+		25B5E70D268355BA00F4997E /* SecureStoreQueryable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E70C268355BA00F4997E /* SecureStoreQueryable.swift */; };
+		25B5E7112683562400F4997E /* Repositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E70E2683562400F4997E /* Repositories.swift */; };
+		25B5E7122683562400F4997E /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E70F2683562400F4997E /* Repository.swift */; };
+		25B5E7132683562400F4997E /* Commit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B5E7102683562400F4997E /* Commit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,7 +70,14 @@
 		251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		251AEBFF267FDBDC00AA05BA /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
-		2552A90D26829D1D00956BC7 /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
+		25B5E6FE268330C500F4997E /* GitHubConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubConstants.swift; sourceTree = "<group>"; };
+		25B5E70526833A5600F4997E /* GitHubAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubAccessToken.swift; sourceTree = "<group>"; };
+		25B5E7082683448F00F4997E /* SecureStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStore.swift; sourceTree = "<group>"; };
+		25B5E70A2683559E00F4997E /* SecureStoreError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStoreError.swift; sourceTree = "<group>"; };
+		25B5E70C268355BA00F4997E /* SecureStoreQueryable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureStoreQueryable.swift; sourceTree = "<group>"; };
+		25B5E70E2683562400F4997E /* Repositories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repositories.swift; sourceTree = "<group>"; };
+		25B5E70F2683562400F4997E /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		25B5E7102683562400F4997E /* Commit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Commit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25B5E702268331C400F4997E /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +109,8 @@
 		251AEBAF2678943500AA05BA = {
 			isa = PBXGroup;
 			children = (
+				25B5E7072683446900F4997E /* Storage */,
+				25B5E703268339C900F4997E /* Networking */,
 				2552A90C26829CFF00956BC7 /* Model */,
 				251AEBF9267BFD1F00AA05BA /* Factories */,
 				251AEBF3267A1C9900AA05BA /* Coordinators */,
@@ -200,9 +218,38 @@
 		2552A90C26829CFF00956BC7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				2552A90D26829D1D00956BC7 /* NetworkRequest.swift */,
+				25B5E7102683562400F4997E /* Commit.swift */,
+				25B5E70E2683562400F4997E /* Repositories.swift */,
+				25B5E70F2683562400F4997E /* Repository.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		25B5E703268339C900F4997E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				25B5E704268339D300F4997E /* OAuth */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		25B5E704268339D300F4997E /* OAuth */ = {
+			isa = PBXGroup;
+			children = (
+				25B5E6FE268330C500F4997E /* GitHubConstants.swift */,
+				25B5E70526833A5600F4997E /* GitHubAccessToken.swift */,
+			);
+			path = OAuth;
+			sourceTree = "<group>";
+		};
+		25B5E7072683446900F4997E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				25B5E7082683448F00F4997E /* SecureStore.swift */,
+				25B5E70A2683559E00F4997E /* SecureStoreError.swift */,
+				25B5E70C268355BA00F4997E /* SecureStoreQueryable.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,6 +268,9 @@
 			dependencies = (
 			);
 			name = GitAcademy;
+			packageProductDependencies = (
+				25B5E701268331C400F4997E /* Alamofire */,
+			);
 			productName = GitAcademy;
 			productReference = 251AEBB82678943500AA05BA /* GitAcademy.app */;
 			productType = "com.apple.product-type.application";
@@ -292,6 +342,9 @@
 				Base,
 			);
 			mainGroup = 251AEBAF2678943500AA05BA;
+			packageReferences = (
+				25B5E700268331C400F4997E /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 251AEBB92678943500AA05BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -337,12 +390,19 @@
 			files = (
 				251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */,
 				251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */,
+				25B5E7132683562400F4997E /* Commit.swift in Sources */,
+				25B5E70B2683559E00F4997E /* SecureStoreError.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
 				251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */,
-				2552A90E26829D1D00956BC7 /* NetworkRequest.swift in Sources */,
 				251AEBBC2678943500AA05BA /* AppDelegate.swift in Sources */,
+				25B5E6FF268330C500F4997E /* GitHubConstants.swift in Sources */,
+				25B5E70626833A5600F4997E /* GitHubAccessToken.swift in Sources */,
 				251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */,
+				25B5E7092683448F00F4997E /* SecureStore.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
+				25B5E7122683562400F4997E /* Repository.swift in Sources */,
+				25B5E7112683562400F4997E /* Repositories.swift in Sources */,
+				25B5E70D268355BA00F4997E /* SecureStoreQueryable.swift in Sources */,
 				251AEC00267FDBDC00AA05BA /* TestViewController.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
 			);
@@ -667,6 +727,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		25B5E700268331C400F4997E /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.3;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		25B5E701268331C400F4997E /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 25B5E700268331C400F4997E /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		251AEBC12678943500AA05BA /* GitAcademy.xcdatamodeld */ = {
