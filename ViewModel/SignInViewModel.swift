@@ -9,7 +9,7 @@ import UIKit
 import AuthenticationServices
 
 class SignInViewModel: NSObject, ObservableObject {
-    
+    private let gitApiManager = GitAPIManager()
     
     func getGitHubIdentity() {
         var authorizeURLComponents = URLComponents(string: GitHubConstants.authorizeURL)
@@ -44,7 +44,7 @@ class SignInViewModel: NSObject, ObservableObject {
                 return
             }
             
-            GitAPIManager.shared.fetchAccessToken(accessCode: value) { isSuccess in
+            self.gitApiManager.fetchAccessToken(accessCode: value) { isSuccess in
                 if !isSuccess {
                     print("Error getching access token")
                 }
