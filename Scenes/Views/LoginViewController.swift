@@ -17,12 +17,7 @@ class LoginViewController: BaseViewController {
     //MARK: - UI elements
     
     private lazy var logoView: UIImageView = {
-        let logo = UIImage(named: "logo")
-        let logoImageView = UIImageView(image: logo)
-//        logoImageView.alpha = logoImageAlpha
-        logoImageView.contentMode = .scaleAspectFit
-        
-        return logoImageView
+        configureLogoImageView()
     }()
     
     private var signInButton = CustomButton(
@@ -65,8 +60,21 @@ class LoginViewController: BaseViewController {
         logoView.snp.makeConstraints { make in
             make.height.width.equalTo(200)
             make.centerX.equalTo(view)
-            make.bottom.equalTo(signInButton.snp.bottom).inset(100)
+            make.bottom.equalTo(signInButton.snp.bottom).inset(150)
         }
+    }
+}
+
+    //MARK: - Helpers
+
+private extension LoginViewController {
+    
+    func configureLogoImageView() -> UIImageView {
+        let logo = UIImage(named: "logo")
+        let logoImageView = UIImageView(image: logo)
+        logoImageView.contentMode = .scaleAspectFit
+        
+        return logoImageView
     }
 }
 
