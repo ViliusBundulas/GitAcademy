@@ -75,7 +75,7 @@ class LoginViewModel: NSObject, ObservableObject {
             switch result {
             case .success(let result):
                 self.items.value = result
-                print("successully got user data")
+                print("successully got user data: \(self.items.value)")
             case .failure:
                 print("failed to get user data")
             }

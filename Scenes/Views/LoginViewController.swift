@@ -55,6 +55,8 @@ class LoginViewController: BaseViewController {
         view.addSubview(logoView)
     }
     
+    //MARK: - Observable data binding
+    
     private func bindViewModel() {
         viewModel.onDismiss = { [unowned self] in
             coordinator?.startTestViewController()
