@@ -19,7 +19,8 @@ extension DependencyContainer: ViewControllersFactory {
     }
     
     func makeTestViewController() -> TestViewController {
-        return TestViewController()
+        let viewModel = LoginViewModel(gitApiManager: gitApiManager)
+        return TestViewController(viewModel: viewModel)
     }
     
     

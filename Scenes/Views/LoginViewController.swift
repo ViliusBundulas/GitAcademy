@@ -49,9 +49,16 @@ class LoginViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
+        bindViewModel()
         
         view.addSubview(signInButton)
         view.addSubview(logoView)
+    }
+    
+    private func bindViewModel() {
+        viewModel.onDismiss = { [unowned self] in
+            coordinator?.startTestViewController()
+        }
     }
     
     //MARK: - Setup constrains

@@ -16,6 +16,10 @@ class LoginViewModel: NSObject, ObservableObject {
         self.gitApiManager = gitApiManager
     }
     
+    var items = Observable<UserData?>(nil)
+    
+    var onDismiss: (() -> Void)?
+    
     func getGitHubIdentity() {
         var authorizeURLComponents = URLComponents(string: GitHubConstants.authorizeURL)
         authorizeURLComponents?.queryItems = [
@@ -49,8 +53,14 @@ class LoginViewModel: NSObject, ObservableObject {
                 return
             }
             
-            self.gitApiManager.fetchAccessToken(accessCode: value) { isSuccess in
-                if !isSuccess {
+            self.gitApiManager.fetchAccessToken(accessCode: value) { result in
+                switch result {
+                case .success:
+                    print("Successfully fetched access token")
+                    guard let token = TokenManager.shared.fetchAccessToken() else { return }
+                    print("This is our token \(token)")
+                    self.onDismiss?()
+                case .failure:
                     print("Error getching access token")
                 }
             }
@@ -58,6 +68,18 @@ class LoginViewModel: NSObject, ObservableObject {
         
         authenticationSession.presentationContextProvider = self
         authenticationSession.start()
+    }
+    
+    func getUserData() {
+        self.gitApiManager.fetchUserData { result in
+            switch result {
+            case .success(let result):
+                self.items.value = result
+                print("successully got user data")
+            case .failure:
+                print("failed to get user data")
+            }
+        }
     }
 }
 

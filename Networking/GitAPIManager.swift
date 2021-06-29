@@ -9,73 +9,77 @@ import Foundation
 import Alamofire
 
 class GitAPIManager {
-//  static let shared = GitAPIManager()
-
-  let sessionManager: Session = {
-    let configuration = URLSessionConfiguration.af.default
-    configuration.requestCachePolicy = .returnCacheDataElseLoad
-    let responseCacher = ResponseCacher(behavior: .modify { _, response in
-      let userInfo = ["date": Date()]
-      return CachedURLResponse(
-        response: response.response,
-        data: response.data,
-        userInfo: userInfo,
-        storagePolicy: .allowed)
-    })
-
-    let networkLogger = GitNetworkLogger()
-    let interceptor = GitRequestInterceptor()
-
-    return Session(
-      configuration: configuration,
-      interceptor: interceptor,
-      cachedResponseHandler: responseCacher,
-      eventMonitors: [networkLogger])
-  }()
-
-  func fetchPopularSwiftRepositories(completion: @escaping ([Repository]) -> Void) {
-    searchRepositories(query: "language:Swift", completion: completion)
-  }
-
-  func fetchCommits(for repository: String, completion: @escaping ([Commit]) -> Void) {
-    sessionManager.request(GitRouter.fetchCommits(repository))
-      .responseDecodable(of: [Commit].self) { response in
-        guard let commits = response.value else {
-          return
+    //  static let shared = GitAPIManager()
+    
+    let sessionManager: Session = {
+        let configuration = URLSessionConfiguration.af.default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        let responseCacher = ResponseCacher(behavior: .modify { _, response in
+            let userInfo = ["date": Date()]
+            return CachedURLResponse(
+                response: response.response,
+                data: response.data,
+                userInfo: userInfo,
+                storagePolicy: .allowed)
+        })
+        
+        let networkLogger = GitNetworkLogger()
+        let interceptor = GitRequestInterceptor()
+        
+        return Session(
+            configuration: configuration,
+            interceptor: interceptor,
+            cachedResponseHandler: responseCacher,
+            eventMonitors: [networkLogger])
+    }()
+    
+    func fetchPopularSwiftRepositories(completion: @escaping ([Repository]) -> Void) {
+        searchRepositories(query: "language:Swift", completion: completion)
+    }
+    
+    func fetchCommits(for repository: String, completion: @escaping ([Commit]) -> Void) {
+        sessionManager.request(GitRouter.fetchCommits(repository))
+            .responseDecodable(of: [Commit].self) { response in
+                guard let commits = response.value else {
+                    return
+                }
+                completion(commits)
+            }
+    }
+    
+    func searchRepositories(query: String, completion: @escaping ([Repository]) -> Void) {
+        sessionManager.request(GitRouter.searchRepositories(query))
+            .responseDecodable(of: Repositories.self) { response in
+                guard let repositories = response.value else {
+                    return completion([])
+                }
+                completion(repositories.items)
+            }
+    }
+    
+    
+    func fetchAccessToken(accessCode: String, completion: @escaping (AFResult<GitHubAccessToken>) -> Void) {
+        sessionManager.request(GitRouter.fetchAccessToken(accessCode))
+            .responseDecodable { (response: AFDataResponse<GitHubAccessToken>) in
+                guard let token = response.value else { return }
+                TokenManager.shared.saveAccessToken(gitToken: token)
+                completion(response.result)
+            }
+    }
+    
+    func fetchUserRepositories(completion: @escaping ([Repository]) -> Void) {
+        sessionManager.request(GitRouter.fetchUserRepositories)
+            .responseDecodable(of: [Repository].self) { response in
+                guard let repositories = response.value else {
+                    return completion([])
+                }
+                completion(repositories)
+            }
+    }
+    
+    func fetchUserData(completion: @escaping (AFResult<UserData>) -> Void) {
+        sessionManager.request(GitRouter.fetchUserData).responseDecodable { (response: AFDataResponse<UserData>) in
+            completion(response.result)
         }
-        completion(commits)
-      }
-  }
-
-  func searchRepositories(query: String, completion: @escaping ([Repository]) -> Void) {
-    sessionManager.request(GitRouter.searchRepositories(query))
-      .responseDecodable(of: Repositories.self) { response in
-        guard let repositories = response.value else {
-          return completion([])
-        }
-        completion(repositories.items)
-      }
-  }
-
-
-  func fetchAccessToken(accessCode: String, completion: @escaping (Bool) -> Void) {
-    sessionManager.request(GitRouter.fetchAccessToken(accessCode))
-      .responseDecodable(of: GitHubAccessToken.self) { response in
-        guard let token = response.value else {
-          return completion(false)
-        }
-        TokenManager.shared.saveAccessToken(gitToken: token)
-        completion(true)
-      }
-  }
-
-  func fetchUserRepositories(completion: @escaping ([Repository]) -> Void) {
-    sessionManager.request(GitRouter.fetchUserRepositories)
-      .responseDecodable(of: [Repository].self) { response in
-        guard let repositories = response.value else {
-          return completion([])
-        }
-        completion(repositories)
-      }
-  }
+    }
 }
