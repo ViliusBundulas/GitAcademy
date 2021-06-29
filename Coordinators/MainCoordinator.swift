@@ -20,9 +20,9 @@ class MainCoordinator: CoordinatorProtocol {
     }
     
     func start() {
-        let viewController = LoginViewController()
-        viewController.coordinator = self
-        navigationController.pushViewController(viewController, animated: true)
+        let loginViewController = viewControllersFactory.makeLoginViewController()
+        loginViewController.coordinator = self
+        navigationController.pushViewController(loginViewController, animated: true)
     }
     
     func startTestViewController() {

@@ -12,7 +12,16 @@ class LoginViewController: BaseViewController {
     //MARK: - Dependencies
     
     weak var coordinator: MainCoordinator?
-    let apiManager = SignInViewModel()
+    let viewModel: LoginViewModel
+    
+    init(viewModel: LoginViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError()
+    }
     
     //MARK: - UI elements
     
@@ -31,8 +40,8 @@ class LoginViewController: BaseViewController {
     
     //MARK: - Button actions
     
-    @objc func signInPressed(sender: UIButton!) {
-        self.apiManager.getGitHubIdentity()
+    @objc func signInPressed(sender: UITapGestureRecognizer) {
+        self.viewModel.getGitHubIdentity()
     }
     
     

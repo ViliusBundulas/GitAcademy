@@ -21,13 +21,11 @@ class CustomButton: BaseView {
         button.layer.cornerRadius = cornerRadius ?? 25
         button.alpha = buttonAlpha ?? 1
         button.addTarget(target, action: action!, for: controlEvent)
-        button.isUserInteractionEnabled = true
         
         label = UILabel()
         label.text = text
         label.textColor = textColor
         label.font = textFont
-        
         super.init()
     }
     
@@ -41,7 +39,7 @@ class CustomButton: BaseView {
         super.setupView()
         
         self.addSubview(button)
-        button.addSubview(label)
+        self.addSubview(label)
     }
     
     //MARK: - Setup constrains

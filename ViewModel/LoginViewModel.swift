@@ -8,8 +8,13 @@
 import UIKit
 import AuthenticationServices
 
-class SignInViewModel: NSObject, ObservableObject {
-    private let gitApiManager = GitAPIManager()
+class LoginViewModel: NSObject, ObservableObject {
+    
+    private let gitApiManager: GitAPIManager
+    
+    init(gitApiManager: GitAPIManager) {
+        self.gitApiManager = gitApiManager
+    }
     
     func getGitHubIdentity() {
         var authorizeURLComponents = URLComponents(string: GitHubConstants.authorizeURL)
@@ -56,7 +61,7 @@ class SignInViewModel: NSObject, ObservableObject {
     }
 }
 
-extension SignInViewModel: ASWebAuthenticationPresentationContextProviding {
+extension LoginViewModel: ASWebAuthenticationPresentationContextProviding {
   func presentationAnchor(for session: ASWebAuthenticationSession)
   -> ASPresentationAnchor {
     let window = UIApplication.shared.windows.first { $0.isKeyWindow }
