@@ -38,6 +38,14 @@ class ProfileViewController: BaseViewController {
         configureAvatarView()
     }()
     
+    private lazy var followersLabel: UILabel = {
+        configureFollowersLabel()
+    }()
+    
+    private lazy var followingLabel: UILabel = {
+        configureFollowingLabel()
+    }()
+    
     
     //MARK: - Button actions
     
@@ -130,6 +138,18 @@ extension ProfileViewController {
         label.textAlignment = .center
         label.textColor = .white.withAlphaComponent(0.8)
         label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }
+    
+    func configureFollowersLabel() -> UILabel {
+        let label = UILabel()
+        
+        return label
+    }
+    
+    func configureFollowingLabel() -> UILabel {
+        let label = UILabel()
         
         return label
     }
