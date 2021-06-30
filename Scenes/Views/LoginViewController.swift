@@ -9,6 +9,9 @@ import UIKit
 
 class LoginViewController: BaseViewController {
     
+    private let whiteColor: UIColor = .black
+    private let blackColor: UIColor = .white
+    
     //MARK: - Dependencies
     
     weak var coordinator: MainCoordinator?
@@ -56,6 +59,7 @@ class LoginViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
+        setGradientBackground()
         bindViewModel()
         
         view.addSubview(signInButton)
@@ -114,6 +118,18 @@ private extension LoginViewController {
         logoImageView.contentMode = .scaleAspectFit
         
         return logoImageView
+    }
+    
+    func setGradientBackground() {
+        let colorTop =  whiteColor.cgColor
+        let colorBottom = blackColor.cgColor
+                    
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [colorTop, colorBottom]
+        gradientLayer.locations = [-0.2, 1.0]
+        gradientLayer.frame = self.view.bounds
+                
+        self.view.layer.insertSublayer(gradientLayer, at:0)
     }
 }
 

@@ -48,10 +48,12 @@ class ProfileViewController: BaseViewController {
         super.setupView()
         bindViewModel()
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .systemPink
         
         view.addSubview(button)
         view.addSubview(label)
+        
+        label.textAlignment = .center
     }
     
     //MARK: - Observable data binding
@@ -75,7 +77,7 @@ class ProfileViewController: BaseViewController {
         label.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(50)
-            make.centerX.centerY.equalTo(view)
+            make.centerX.centerY.equalTo(view.center)
         }
     }
     

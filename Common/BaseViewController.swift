@@ -9,16 +9,12 @@ import UIKit
 
 class BaseViewController: UIViewController {
     
-    private let whiteColor: UIColor = .black
-    private let blackColor: UIColor = .white
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
         setupConstrains()
         configureNavigationController()
-        setGradientBackground()
     }
     
     func setupView() {}
@@ -26,17 +22,6 @@ class BaseViewController: UIViewController {
 }
 
 extension BaseViewController {
-    func setGradientBackground() {
-        let colorTop =  whiteColor.cgColor
-        let colorBottom = blackColor.cgColor
-                    
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [colorTop, colorBottom]
-        gradientLayer.locations = [-0.2, 1.0]
-        gradientLayer.frame = self.view.bounds
-                
-        self.view.layer.insertSublayer(gradientLayer, at:0)
-    }
     
     func configureNavigationController() {
         navigationController?.setNavigationBarHidden(true, animated: true)
