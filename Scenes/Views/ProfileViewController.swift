@@ -26,7 +26,7 @@ class ProfileViewController: BaseViewController {
     
     //MARK: UI elements
     
-    private lazy var label: UILabel = {
+    private lazy var usernameLabel: UILabel = {
         configureUsernameLabel()
     }()
     
@@ -52,7 +52,7 @@ class ProfileViewController: BaseViewController {
         view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
         
 
-        view.addSubview(label)
+        view.addSubview(usernameLabel)
         view.addSubview(container)
         container.addSubview(avatarView)
         
@@ -62,7 +62,7 @@ class ProfileViewController: BaseViewController {
     
     private func bindViewModel() {
         viewModel.item.bind { item in
-            self.label.text = item?.login
+            self.usernameLabel.text = item?.login
         }
         
         viewModel.avatarImage.bind { image in
@@ -75,7 +75,7 @@ class ProfileViewController: BaseViewController {
     override func setupConstrains() {
         super.setupConstrains()
         
-        label.snp.makeConstraints { make in
+        usernameLabel.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(50)
             make.centerX.equalTo(container)
