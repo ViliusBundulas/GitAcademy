@@ -137,7 +137,6 @@
 		251AEBAF2678943500AA05BA = {
 			isa = PBXGroup;
 			children = (
-				2592D7022685362A004ABBD1 /* ReusableViews */,
 				25B5E71426835C9800F4997E /* ViewModel */,
 				25B5E7072683446900F4997E /* Storage */,
 				25B5E703268339C900F4997E /* Networking */,
@@ -215,6 +214,7 @@
 		251AEBF12678B65200AA05BA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				2592D7022685362A004ABBD1 /* ReusableViews */,
 				251AEBF22678B65D00AA05BA /* Views */,
 			);
 			path = Scenes;

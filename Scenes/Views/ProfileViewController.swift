@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Alamofire
 
 class ProfileViewController: BaseViewController {
     
@@ -26,6 +27,7 @@ class ProfileViewController: BaseViewController {
     //MARK: UI elements
     
     private var label = UILabel()
+    private var avatarView = UIImageView()
     
     private var button: UIButton = {
         let buttone = UIButton()
@@ -52,6 +54,7 @@ class ProfileViewController: BaseViewController {
         
         view.addSubview(button)
         view.addSubview(label)
+        view.addSubview(avatarView)
         
         label.textAlignment = .center
     }
@@ -78,6 +81,13 @@ class ProfileViewController: BaseViewController {
             make.width.equalTo(200)
             make.height.equalTo(50)
             make.centerX.centerY.equalTo(view.center)
+        }
+        
+        avatarView.snp.makeConstraints { make in
+            make.top.equalTo(button.snp.bottom).offset(50)
+            make.leading.equalTo(view).offset(50)
+            make.trailing.equalTo(view).inset(50)
+            make.height.equalTo(100)
         }
     }
     
