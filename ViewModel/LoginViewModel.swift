@@ -17,10 +17,13 @@ class LoginViewModel: NSObject, ObservableObject {
     }
     
     var items = Observable<UserData?>(nil)
+    var isLoading = Observable<Bool>(false)
     
     var onDismiss: (() -> Void)?
     
     func getGitHubIdentity() {
+        self.isLoading.value = true
+        
         var authorizeURLComponents = URLComponents(string: GitHubConstants.authorizeURL)
         authorizeURLComponents?.queryItems = [
             URLQueryItem(name: "client_id", value: GitHubConstants.clientID),
@@ -59,6 +62,7 @@ class LoginViewModel: NSObject, ObservableObject {
                     print("Successfully fetched access token")
                     guard let token = TokenManager.shared.fetchAccessToken() else { return }
                     print("This is our token \(token)")
+                    self.isLoading.value = false
                     self.onDismiss?()
                 case .failure:
                     print("Error getching access token")
@@ -75,7 +79,7 @@ class LoginViewModel: NSObject, ObservableObject {
             switch result {
             case .success(let result):
                 self.items.value = result
-                print("successully got user data: \(self.items.value)")
+                print("successully got user data: \(String(describing: self.items.value))")
             case .failure:
                 print("failed to get user data")
             }

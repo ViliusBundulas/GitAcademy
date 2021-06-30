@@ -38,6 +38,13 @@ class LoginViewController: BaseViewController {
         target: self, action: #selector(signInPressed), controlEvent: .touchUpInside
     )
     
+    private lazy var activityIndicatorView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView()
+        indicator.style = .large
+        
+        return indicator
+    }()
+    
     //MARK: - Button actions
     
     @objc func signInPressed(sender: UITapGestureRecognizer) {
@@ -53,6 +60,7 @@ class LoginViewController: BaseViewController {
         
         view.addSubview(signInButton)
         view.addSubview(logoView)
+        view.addSubview(activityIndicatorView)
     }
     
     //MARK: - Observable data binding
@@ -60,6 +68,15 @@ class LoginViewController: BaseViewController {
     private func bindViewModel() {
         viewModel.onDismiss = { [unowned self] in
             coordinator?.startTestViewController()
+        }
+        
+        viewModel.isLoading.bind { isLoading in
+            switch isLoading {
+            case true:
+                self.activityIndicatorView.startAnimating()
+            case false:
+                self.activityIndicatorView.stopAnimating()
+            }
         }
     }
     
@@ -79,6 +96,10 @@ class LoginViewController: BaseViewController {
             make.height.width.equalTo(200)
             make.centerX.equalTo(view)
             make.bottom.equalTo(signInButton.snp.bottom).inset(150)
+        }
+        
+        activityIndicatorView.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(view)
         }
     }
 }
