@@ -26,7 +26,14 @@ class ProfileViewController: BaseViewController {
     
     //MARK: UI elements
     
-    private var label = UILabel()
+    private lazy var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white.withAlphaComponent(0.8)
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
+    }()
     
     private lazy var container: UIView = {
         configureContainer()
@@ -58,7 +65,6 @@ class ProfileViewController: BaseViewController {
         view.addSubview(container)
         container.addSubview(avatarView)
         
-        label.textAlignment = .center
     }
     
     //MARK: - Observable data binding
@@ -81,7 +87,8 @@ class ProfileViewController: BaseViewController {
         label.snp.makeConstraints { make in
             make.width.equalTo(200)
             make.height.equalTo(50)
-            make.centerX.centerY.equalTo(view.center)
+            make.centerX.equalTo(container)
+            make.top.equalTo(container.snp.bottom).offset(10)
         }
         
         container.snp.makeConstraints { make in
@@ -110,9 +117,7 @@ extension ProfileViewController {
     
     func configureContainer() -> UIView {
         let view = UIView()
-        view.layer.borderWidth = 1
         view.layer.masksToBounds = false
-        view.layer.borderColor = UIColor.black.cgColor
         view.layer.cornerRadius = 75
         view.clipsToBounds = true
         
