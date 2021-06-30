@@ -76,10 +76,10 @@
             filePath = "Scenes/Views/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "bindViewModel()"
-            landmarkType = "7">
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -92,9 +92,9 @@
             filePath = "Scenes/Views/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "bindViewModel()"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "setupConstrains()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

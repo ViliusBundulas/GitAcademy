@@ -28,6 +28,10 @@ class ProfileViewController: BaseViewController {
     
     private var label = UILabel()
     
+    private lazy var container: UIView = {
+        configureContainer()
+    }()
+    
     private lazy var avatarView: UIImageView = {
         let image = UIImageView()
         image.clipsToBounds = true
@@ -47,10 +51,12 @@ class ProfileViewController: BaseViewController {
         super.setupView()
         bindViewModel()
         
-        view.backgroundColor = .systemPink
+        view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
+//        view.alpha = 0.9
 
         view.addSubview(label)
-        view.addSubview(avatarView)
+        view.addSubview(container)
+        container.addSubview(avatarView)
         
         label.textAlignment = .center
     }
@@ -78,11 +84,16 @@ class ProfileViewController: BaseViewController {
             make.centerX.centerY.equalTo(view.center)
         }
         
+        container.snp.makeConstraints { make in
+            make.top.equalTo(view).offset(100)
+            make.centerX.equalTo(view)
+            make.height.width.equalTo(150)
+        }
+        
         avatarView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(50)
-            make.leading.equalTo(view).offset(50)
-            make.trailing.equalTo(view).inset(50)
-            make.height.equalTo(100)
+            make.top.equalTo(view).offset(100)
+            make.centerX.equalTo(view)
+            make.height.width.equalTo(150)
         }
     }
     
@@ -92,5 +103,19 @@ class ProfileViewController: BaseViewController {
         super.viewWillAppear(animated)
 
         viewModel.getUserData()
+    }
+}
+
+extension ProfileViewController {
+    
+    func configureContainer() -> UIView {
+        let view = UIView()
+        view.layer.borderWidth = 1
+        view.layer.masksToBounds = false
+        view.layer.borderColor = UIColor.black.cgColor
+        view.layer.cornerRadius = 75
+        view.clipsToBounds = true
+        
+        return view
     }
 }
