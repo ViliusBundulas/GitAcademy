@@ -67,7 +67,7 @@ class LoginViewController: BaseViewController {
     
     private func bindViewModel() {
         viewModel.onDismiss = { [unowned self] in
-            coordinator?.startTestViewController()
+            coordinator?.startProfileViewController()
         }
         
         viewModel.isLoading.bind { isLoading in

@@ -16,7 +16,7 @@ class LoginViewModel: NSObject, ObservableObject {
         self.gitApiManager = gitApiManager
     }
     
-    var items = Observable<UserData?>(nil)
+    
     var isLoading = Observable<Bool>(false)
     
     var onDismiss: (() -> Void)?
@@ -72,18 +72,6 @@ class LoginViewModel: NSObject, ObservableObject {
         
         authenticationSession.presentationContextProvider = self
         authenticationSession.start()
-    }
-    
-    func getUserData() {
-        self.gitApiManager.fetchUserData { result in
-            switch result {
-            case .success(let result):
-                self.items.value = result
-                print("successully got user data: \(String(describing: self.items.value))")
-            case .failure:
-                print("failed to get user data")
-            }
-        }
     }
 }
 

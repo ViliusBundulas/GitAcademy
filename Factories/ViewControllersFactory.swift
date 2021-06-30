@@ -9,7 +9,7 @@ import Foundation
 
 protocol ViewControllersFactory {
     func makeLoginViewController() -> LoginViewController
-    func makeTestViewController() -> TestViewController
+    func makeProfileViewController() -> ProfileViewController
 }
 
 extension DependencyContainer: ViewControllersFactory {
@@ -18,9 +18,9 @@ extension DependencyContainer: ViewControllersFactory {
         return LoginViewController(viewModel: viewModel)
     }
     
-    func makeTestViewController() -> TestViewController {
-        let viewModel = LoginViewModel(gitApiManager: gitApiManager)
-        return TestViewController(viewModel: viewModel)
+    func makeProfileViewController() -> ProfileViewController {
+        let viewModel = ProfileViewModel(gitApiManager: gitApiManager)
+        return ProfileViewController(viewModel: viewModel)
     }
     
     
