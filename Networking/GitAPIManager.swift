@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import Alamofire
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class GitAPIManager {
     //  static let shared = GitAPIManager()
@@ -83,6 +84,4 @@ class GitAPIManager {
             completion(response.result)
         }
     }
-    
-    
 }

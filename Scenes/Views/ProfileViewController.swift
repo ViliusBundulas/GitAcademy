@@ -27,22 +27,19 @@ class ProfileViewController: BaseViewController {
     //MARK: UI elements
     
     private var label = UILabel()
-    private var avatarView = UIImageView()
     
-    private var button: UIButton = {
-        let buttone = UIButton()
-        buttone.titleLabel?.text = "Press"
-        buttone.backgroundColor = .yellow
-        buttone.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+    private lazy var avatarView: UIImageView = {
+        let image = UIImageView()
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFit
         
-        return buttone
+        return image
     }()
+    
     
     //MARK: - Button actions
     
-    @objc func buttonPressed() {
-//        viewModel.getUserData()
-    }
+
     
     //MARK: - Setup views
     
@@ -51,8 +48,7 @@ class ProfileViewController: BaseViewController {
         bindViewModel()
         
         view.backgroundColor = .systemPink
-        
-        view.addSubview(button)
+
         view.addSubview(label)
         view.addSubview(avatarView)
         
@@ -65,17 +61,16 @@ class ProfileViewController: BaseViewController {
         viewModel.item.bind { item in
             self.label.text = item?.login
         }
+        
+        viewModel.avatarImage.bind { image in
+            self.avatarView.image = image
+        }
     }
     
     //MARK: - Setup constrains
     
     override func setupConstrains() {
         super.setupConstrains()
-        
-        button.snp.makeConstraints { make in
-            make.height.width.equalTo(100)
-            make.centerX.centerX.equalTo(view)
-        }
         
         label.snp.makeConstraints { make in
             make.width.equalTo(200)
@@ -84,7 +79,7 @@ class ProfileViewController: BaseViewController {
         }
         
         avatarView.snp.makeConstraints { make in
-            make.top.equalTo(button.snp.bottom).offset(50)
+            make.top.equalTo(view).offset(50)
             make.leading.equalTo(view).offset(50)
             make.trailing.equalTo(view).inset(50)
             make.height.equalTo(100)

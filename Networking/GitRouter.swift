@@ -14,7 +14,6 @@ enum GitRouter {
     case fetchCommits(String)
     case fetchAccessToken(String)
     case fetchUserData
-    case fetchUserAvatar(String)
     
     var baseURL: String {
         switch self {
@@ -22,9 +21,6 @@ enum GitRouter {
             return "https://api.github.com"
         case .fetchAccessToken:
             return "https://github.com"
-        case .fetchUserAvatar(let url):
-            return url
-            
         }
     }
     
@@ -40,8 +36,6 @@ enum GitRouter {
             return "/login/oauth/access_token"
         case .fetchUserData:
             return "/user"
-        case .fetchUserAvatar:
-            return ""
         }
     }
     
@@ -57,8 +51,6 @@ enum GitRouter {
             return .post
         case .fetchUserData:
             return .get
-        case .fetchUserAvatar:
-            return .get
         }
     }
     
@@ -71,8 +63,6 @@ enum GitRouter {
         case .searchRepositories(let query):
             return ["sort": "stars", "order": "desc", "page": "1", "q": query]
         case .fetchCommits:
-            return nil
-        case .fetchUserAvatar:
             return nil
         case .fetchAccessToken(let accessCode):
             return [
