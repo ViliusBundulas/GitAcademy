@@ -92,13 +92,13 @@ class ProfileViewController: BaseViewController {
         }
         
         container.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(100)
+            make.top.equalTo(view).offset(50).multipliedBy(0.2)
             make.centerX.equalTo(view)
             make.height.width.equalTo(150)
         }
         
         avatarView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(100)
+            make.top.equalTo(view).offset(50).multipliedBy(0.2)
             make.centerX.equalTo(view)
             make.height.width.equalTo(150)
         }
