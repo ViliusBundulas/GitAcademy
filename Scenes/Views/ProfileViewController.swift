@@ -27,12 +27,7 @@ class ProfileViewController: BaseViewController {
     //MARK: UI elements
     
     private lazy var label: UILabel = {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.textColor = .white.withAlphaComponent(0.8)
-        label.adjustsFontSizeToFitWidth = true
-        
-        return label
+        configureUsernameLabel()
     }()
     
     private lazy var container: UIView = {
@@ -40,11 +35,7 @@ class ProfileViewController: BaseViewController {
     }()
     
     private lazy var avatarView: UIImageView = {
-        let image = UIImageView()
-        image.clipsToBounds = true
-        image.contentMode = .scaleAspectFit
-        
-        return image
+        configureAvatarView()
     }()
     
     
@@ -59,7 +50,7 @@ class ProfileViewController: BaseViewController {
         bindViewModel()
         
         view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
-//        view.alpha = 0.9
+        
 
         view.addSubview(label)
         view.addSubview(container)
@@ -92,13 +83,13 @@ class ProfileViewController: BaseViewController {
         }
         
         container.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(50).multipliedBy(0.2)
+            make.top.equalTo(view).offset(100).multipliedBy(0.2)
             make.centerX.equalTo(view)
             make.height.width.equalTo(150)
         }
         
         avatarView.snp.makeConstraints { make in
-            make.top.equalTo(view).offset(50).multipliedBy(0.2)
+            make.top.equalTo(view).offset(100).multipliedBy(0.2)
             make.centerX.equalTo(view)
             make.height.width.equalTo(150)
         }
@@ -113,6 +104,8 @@ class ProfileViewController: BaseViewController {
     }
 }
 
+    //MARK: - UI element configuration
+
 extension ProfileViewController {
     
     func configureContainer() -> UIView {
@@ -122,5 +115,22 @@ extension ProfileViewController {
         view.clipsToBounds = true
         
         return view
+    }
+    
+    func configureAvatarView() -> UIImageView {
+        let image = UIImageView()
+        image.clipsToBounds = true
+        image.contentMode = .scaleAspectFit
+        
+        return image
+    }
+    
+    func configureUsernameLabel() -> UILabel {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .white.withAlphaComponent(0.8)
+        label.adjustsFontSizeToFitWidth = true
+        
+        return label
     }
 }
