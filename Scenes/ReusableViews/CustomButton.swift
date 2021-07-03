@@ -13,19 +13,16 @@ class CustomButton: BaseView {
     //MARK: UI elements
     
     let button: UIButton
-    let label: UILabel
     
-    init(text: String? = nil, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil, buttonAlpha: CGFloat? = nil, textColor: UIColor? = nil, textFont: UIFont? = nil, target: Any? = nil, action: Selector? = nil, controlEvent: UIControl.Event) {
-        button = UIButton()
+    init(text: String? = nil, backgroundColor: UIColor? = nil, cornerRadius: CGFloat? = nil, buttonAlpha: CGFloat? = nil, textColor: UIColor? = nil, target: Any? = nil, action: Selector? = nil, controlEvent: UIControl.Event) {
+        button = UIButton(type: .system)
+        button.tintColor = textColor
         button.backgroundColor = backgroundColor
         button.layer.cornerRadius = cornerRadius ?? 25
         button.alpha = buttonAlpha ?? 1
         button.addTarget(target, action: action!, for: controlEvent)
+        button.setTitle(text, for: .normal)
         
-        label = UILabel()
-        label.text = text
-        label.textColor = textColor
-        label.font = textFont
         super.init()
     }
     
@@ -39,7 +36,6 @@ class CustomButton: BaseView {
         super.setupView()
         
         self.addSubview(button)
-        self.addSubview(label)
     }
     
     //MARK: - Setup constrains
@@ -49,10 +45,6 @@ class CustomButton: BaseView {
         
         button.snp.makeConstraints { make in
             make.top.bottom.leading.trailing.equalTo(self)
-        }
-        
-        label.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(button)
         }
     }
 }
