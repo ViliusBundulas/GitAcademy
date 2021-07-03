@@ -41,8 +41,8 @@ class UserInformationView: BaseView {
         self.usernameLabel.adjustsFontSizeToFitWidth = true
         
         self.followersIcon = UIImageView()
-        self.followersIcon.backgroundColor = .white
-        self.followersIcon.image = #imageLiteral(resourceName: "followers")
+        self.followersIcon.image = #imageLiteral(resourceName: "followers").withRenderingMode(.alwaysTemplate)
+        self.followersIcon.tintColor = .white
         
         
         self.followersContainer = UIView()
@@ -65,7 +65,7 @@ class UserInformationView: BaseView {
         
         self.followingNumberLabel = UILabel()
         self.followingNumberLabel.textColor = .white
-        self.followingNumberLabel.textAlignment = .right
+        self.followingNumberLabel.textAlignment = .center
         
         super.init()
     }
@@ -135,7 +135,7 @@ class UserInformationView: BaseView {
         followersLabel.snp.makeConstraints { make in
             make.top.equalTo(followersContainer.snp.top)
             make.bottom.equalTo(followersContainer.snp.bottom)
-            make.trailing.equalTo(followersContainer.snp.trailing).inset(10)
+            make.trailing.equalTo(followersContainer.snp.trailing).inset(20)
         }
         
         followersNumberLabel.snp.makeConstraints { make in
@@ -162,7 +162,7 @@ class UserInformationView: BaseView {
         followingNumberLabel.snp.makeConstraints { make in
             make.top.equalTo(followingContainer.snp.top)
             make.bottom.equalTo(followingContainer.snp.bottom)
-            make.leading.equalTo(followingContainer.snp.leading)
+            make.leading.equalTo(followingContainer.snp.leading).offset(20)
             make.width.equalTo(15)
         }
     }
