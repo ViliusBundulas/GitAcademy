@@ -21,6 +21,7 @@
 		251AEBFB267BFD4500AA05BA /* DependencyContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */; };
 		251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */; };
 		251AEC00267FDBDC00AA05BA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */; };
+		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
 		2568A88C268B3A8B00821960 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88B268B3A8B00821960 /* UserData.swift */; };
 		2568A88E268B561C00821960 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88D268B561C00821960 /* Observable.swift */; };
@@ -85,6 +86,7 @@
 		251AEBFA267BFD4500AA05BA /* DependencyContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DependencyContainer.swift; sourceTree = "<group>"; };
 		251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllersFactory.swift; sourceTree = "<group>"; };
 		251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2568A88B268B3A8B00821960 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2568A88D268B561C00821960 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -225,8 +227,8 @@
 		251AEBF22678B65D00AA05BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
-				251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */,
+				253E092A269067E80099A46F /* Login */,
+				253E0928269067C80099A46F /* Profile */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -247,6 +249,31 @@
 				251AEBFD267BFD7C00AA05BA /* ViewControllersFactory.swift */,
 			);
 			path = Factories;
+			sourceTree = "<group>";
+		};
+		253E0928269067C80099A46F /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				253E0929269067D10099A46F /* UI */,
+				251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		253E0929269067D10099A46F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				253E092B269068820099A46F /* UserInformationView.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		253E092A269067E80099A46F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				251AEBEE2678946E00AA05BA /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		2552A90C26829CFF00956BC7 /* Model */ = {
@@ -479,6 +506,7 @@
 				2568A88E268B561C00821960 /* Observable.swift in Sources */,
 				25B5E70D268355BA00F4997E /* SecureStoreQueryable.swift in Sources */,
 				25B5E721268368C100F4997E /* GitNetworkLogger.swift in Sources */,
+				253E092C269068820099A46F /* UserInformationView.swift in Sources */,
 				251AEC00267FDBDC00AA05BA /* ProfileViewController.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
 			);
