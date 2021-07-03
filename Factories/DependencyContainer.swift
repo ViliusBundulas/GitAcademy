@@ -9,5 +9,6 @@ import Foundation
 
 class DependencyContainer {
     lazy var gitApiManager = GitAPIManager()
+    lazy var tokenManager = TokenManager()
 }
 

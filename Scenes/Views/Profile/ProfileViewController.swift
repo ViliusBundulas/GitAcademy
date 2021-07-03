@@ -28,10 +28,20 @@ class ProfileViewController: BaseViewController {
     
     private lazy var userInformationView = UserInformationView()
     
+    private lazy var logoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Logout", for: .normal)
+        button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+        
+        return button
+    }()
+    
     
     //MARK: - Button actions
     
-
+    @objc func logoutButtonPressed() {
+        viewModel.logout()
+    }
     
     //MARK: - Setup views
     
@@ -42,6 +52,7 @@ class ProfileViewController: BaseViewController {
         view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
         
         view.addSubview(userInformationView)
+        view.addSubview(logoutButton)
     }
     
     //MARK: - Observable data binding
@@ -63,8 +74,15 @@ class ProfileViewController: BaseViewController {
     override func setupConstrains() {
         super.setupConstrains()
         
+        logoutButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.trailing.equalTo(view.safeAreaLayoutGuide)
+            make.width.equalTo(100)
+            make.height.equalTo(30)
+        }
+        
         userInformationView.snp.makeConstraints { make in
-            make.top.equalTo(view)
+            make.top.equalTo(logoutButton.snp.bottom)
             make.leading.trailing.bottom.equalTo(view)
         }
     }

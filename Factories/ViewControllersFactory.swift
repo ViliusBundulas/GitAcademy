@@ -19,7 +19,7 @@ extension DependencyContainer: ViewControllersFactory {
     }
     
     func makeProfileViewController() -> ProfileViewController {
-        let viewModel = ProfileViewModel(gitApiManager: gitApiManager)
+        let viewModel = ProfileViewModel(gitApiManager: gitApiManager, tokenManager: tokenManager)
         return ProfileViewController(viewModel: viewModel)
     }
     

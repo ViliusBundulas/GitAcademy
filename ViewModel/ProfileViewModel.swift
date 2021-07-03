@@ -12,13 +12,16 @@ import Kingfisher
 
 class ProfileViewModel {
     private let gitApiManager: GitAPIManager
+    private let tokenManager: TokenManager
     
-    init(gitApiManager: GitAPIManager) {
+    init(gitApiManager: GitAPIManager, tokenManager: TokenManager) {
         self.gitApiManager = gitApiManager
+        self.tokenManager = tokenManager
     }
     
     var item = Observable<UserData?>(nil)
     var avatarImage = Observable<UIImage?>(nil)
+    var isLoggedIn = Observable<Bool?>(nil)
     
     func getUserData() {
         self.gitApiManager.fetchUserData { result in
@@ -32,7 +35,7 @@ class ProfileViewModel {
         }
     }
     
-    func downloadImage(`with` urlString : String){
+    func downloadImage(with urlString : String){
         guard let url = URL.init(string: urlString) else {
             return
         }
@@ -46,5 +49,10 @@ class ProfileViewModel {
                 print("Error: \(error)")
             }
         }
+    }
+    
+    func logout() {
+        tokenManager.clearAccessToken()
+        self.isLoggedIn.value = false
     }
 }

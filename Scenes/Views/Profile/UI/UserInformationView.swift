@@ -9,6 +9,8 @@ import Foundation
 import UIKit
 
 class UserInformationView: BaseView {
+    
+    //MARK: - UI elements
 
     let avatarViewContainer: UIView
     let avatarView: UIImageView
