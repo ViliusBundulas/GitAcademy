@@ -103,13 +103,13 @@ class UserInformationView: BaseView {
         super.setupConstrains()
         
         avatarViewContainer.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(100).multipliedBy(0.2)
+            make.top.equalTo(self).offset(50).multipliedBy(0.2)
             make.centerX.equalTo(self)
             make.height.width.equalTo(150)
         }
         
         avatarView.snp.makeConstraints { make in
-            make.top.equalTo(self).offset(100).multipliedBy(0.2)
+            make.top.equalTo(self).offset(50).multipliedBy(0.2)
             make.centerX.equalTo(self)
             make.height.width.equalTo(150)
         }
