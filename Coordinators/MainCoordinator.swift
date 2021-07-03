@@ -29,9 +29,4 @@ class MainCoordinator: CoordinatorProtocol {
         let vc = viewControllersFactory.makeProfileViewController()
         navigationController.pushViewController(vc, animated: true)
     }
-    
-    func dismiss() {
-        navigationController.popViewController(animated: true)
-    }
-    
 }

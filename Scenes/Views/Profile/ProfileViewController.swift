@@ -29,9 +29,20 @@ class ProfileViewController: BaseViewController {
     private lazy var userInformationView = UserInformationView()
     
     private lazy var logoutButton: UIButton = {
-        let button = UIButton()
+        let button = UIButton(type: .system)
+        button.tintColor = .white
         button.setTitle("Logout", for: .normal)
         button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+        
+        return button
+    }()
+    
+    private lazy var settingsButton: UIButton = {
+        let button = UIButton()
+        button.tintColor = .white
+        let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
         
         return button
     }()
@@ -40,7 +51,7 @@ class ProfileViewController: BaseViewController {
     //MARK: - Button actions
     
     @objc func logoutButtonPressed() {
-        viewModel.logout()
+        coordinator?.start()
     }
     
     //MARK: - Setup views
@@ -53,6 +64,7 @@ class ProfileViewController: BaseViewController {
         
         view.addSubview(userInformationView)
         view.addSubview(logoutButton)
+        view.addSubview(settingsButton)
     }
     
     //MARK: - Observable data binding
@@ -85,13 +97,19 @@ class ProfileViewController: BaseViewController {
             make.top.equalTo(logoutButton.snp.bottom)
             make.leading.trailing.bottom.equalTo(view)
         }
+        
+        settingsButton.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.trailing.equalTo(logoutButton.snp.leading)
+            make.bottom.equalTo(logoutButton.snp.bottom)
+        }
     }
     
     //MARK: - App life cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         viewModel.getUserData()
     }
 }

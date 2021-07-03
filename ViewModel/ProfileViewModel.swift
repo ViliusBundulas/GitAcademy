@@ -50,9 +50,4 @@ class ProfileViewModel {
             }
         }
     }
-    
-    func logout() {
-        tokenManager.clearAccessToken()
-        self.isLoggedIn.value = false
-    }
 }
