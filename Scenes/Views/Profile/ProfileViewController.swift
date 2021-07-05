@@ -29,22 +29,24 @@ class ProfileViewController: BaseViewController {
     private lazy var userInformationView = UserInformationView()
     
     private lazy var logoutButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.tintColor = .white
-        button.setTitle("Logout", for: .normal)
-        button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
-        
-        return button
+        configureLogoutButton()
     }()
     
     private lazy var settingsButton: UIButton = {
-        let button = UIButton()
-        button.tintColor = .white
-        let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
-        button.setImage(image, for: .normal)
-        button.imageView?.contentMode = .scaleAspectFit
+        configureSettingsButton()
+    }()
+    
+    private lazy var userRepositoriesView: RepositoryListView = {
+        let reposView = RepositoryListView()
+        reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
+        reposView.listNameLabel.text = "Repositories"
+        reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
+        reposView.iconView.tintColor = .white
+        reposView.iconView.contentMode = .scaleAspectFit
         
-        return button
+        return reposView
     }()
     
     
@@ -66,6 +68,7 @@ class ProfileViewController: BaseViewController {
         view.addSubview(userInformationView)
         view.addSubview(logoutButton)
         view.addSubview(settingsButton)
+        view.addSubview(userRepositoriesView)
     }
     
     //MARK: - Observable data binding
@@ -79,6 +82,10 @@ class ProfileViewController: BaseViewController {
         
         viewModel.avatarImage.bind { image in
             self.userInformationView.avatarView.image = image
+        }
+        
+        viewModel.repositories.bind { repos in
+            self.userRepositoriesView.countLabel.text = "\(repos?.count ?? 0) >"
         }
     }
     
@@ -96,13 +103,20 @@ class ProfileViewController: BaseViewController {
         
         userInformationView.snp.makeConstraints { make in
             make.top.equalTo(logoutButton.snp.bottom)
-            make.leading.trailing.bottom.equalTo(view)
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(300)
         }
         
         settingsButton.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.trailing.equalTo(logoutButton.snp.leading)
             make.bottom.equalTo(logoutButton.snp.bottom)
+        }
+        
+        userRepositoriesView.snp.makeConstraints { make in
+            make.top.equalTo(userInformationView.snp.bottom)
+            make.height.equalTo(50)
+            make.leading.trailing.equalTo(view)
         }
     }
     
@@ -113,5 +127,29 @@ class ProfileViewController: BaseViewController {
         
         viewModel.getUserData()
         viewModel.getUserRepositories()
+    }
+}
+
+    //MARK: - UI configurations
+
+extension ProfileViewController {
+    
+    func configureSettingsButton() -> UIButton {
+        let button = UIButton()
+        button.tintColor = .white
+        let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
+        button.setImage(image, for: .normal)
+        button.imageView?.contentMode = .scaleAspectFit
+        
+        return button
+    }
+    
+    func configureLogoutButton() -> UIButton {
+        let button = UIButton(type: .system)
+        button.tintColor = .white
+        button.setTitle("Logout", for: .normal)
+        button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
+        
+        return button
     }
 }
