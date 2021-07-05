@@ -22,6 +22,7 @@ class ProfileViewModel {
     var item = Observable<UserData?>(nil)
     var avatarImage = Observable<UIImage?>(nil)
     var repositories = Observable<[Repository]?>(nil)
+    var starredRepositories = Observable<[Repository]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
     func getUserData() {
@@ -48,11 +49,10 @@ class ProfileViewModel {
     }
     
     func getUserStarredRepositories() {
-        self.gitApiManager.fetchUserRepositories { result in
+        self.gitApiManager.fetchStarredRepositories { result in
             switch result {
             case .success(let result):
-                print("This is my starred repositories count number --> \(result.count)")
-                print(result)
+                self.starredRepositories.value = result
             case .failure:
                 print("Failed to get starred repositories")
             }

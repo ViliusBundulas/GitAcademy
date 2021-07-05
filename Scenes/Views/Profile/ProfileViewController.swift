@@ -24,54 +24,6 @@ class ProfileViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //MARK: UI elements
-    
-    private lazy var userInformationView = UserInformationView()
-    
-    private lazy var logoutButton: UIButton = {
-        configureLogoutButton()
-    }()
-    
-    private lazy var settingsButton: UIButton = {
-        configureSettingsButton()
-    }()
-    
-    private lazy var userRepositoriesView: RepositoryListView = {
-        let reposView = RepositoryListView()
-        reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
-        reposView.iconContainerView.backgroundColor = .purple
-        reposView.listNameLabel.text = "Repositories"
-        reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
-        reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
-        reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
-        reposView.iconView.tintColor = .white
-        reposView.iconView.contentMode = .scaleAspectFit
-        
-        return reposView
-    }()
-    
-    
-    //MARK: - Button actions
-    
-    @objc func logoutButtonPressed() {
-        coordinator?.start()
-    }
-    
-    //MARK: - Setup views
-    
-    override func setupView() {
-        super.setupView()
-
-        bindViewModel()
-        
-        view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
-        
-        view.addSubview(userInformationView)
-        view.addSubview(logoutButton)
-        view.addSubview(settingsButton)
-        view.addSubview(userRepositoriesView)
-    }
-    
     //MARK: - Observable data binding
     
     private func bindViewModel() {
@@ -88,6 +40,52 @@ class ProfileViewController: BaseViewController {
         viewModel.repositories.bind { repos in
             self.userRepositoriesView.countLabel.text = "\(repos?.count ?? 0)  >"
         }
+        
+        viewModel.starredRepositories.bind { repos in
+            self.starredUserRepositoriesView.countLabel.text = "\(repos?.count ?? 0)  >"
+        }
+    }
+    
+    //MARK: UI elements
+    
+    private lazy var userInformationView = UserInformationView()
+    
+    private lazy var logoutButton: UIButton = {
+        configureLogoutButton()
+    }()
+    
+    private lazy var settingsButton: UIButton = {
+        configureSettingsButton()
+    }()
+    
+    private lazy var userRepositoriesView: RepositoryListView = {
+        configureRepositoriesView()
+    }()
+    
+    private lazy var starredUserRepositoriesView: RepositoryListView = {
+        configureStarredView()
+    }()
+    
+    
+    //MARK: - Button actions
+    
+    @objc func logoutButtonPressed() {
+    }
+    
+    //MARK: - Setup views
+    
+    override func setupView() {
+        super.setupView()
+
+        bindViewModel()
+        
+        view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
+        
+        view.addSubview(userInformationView)
+        view.addSubview(logoutButton)
+        view.addSubview(settingsButton)
+        view.addSubview(userRepositoriesView)
+        view.addSubview(starredUserRepositoriesView)
     }
     
     //MARK: - Setup constrains
@@ -119,6 +117,11 @@ class ProfileViewController: BaseViewController {
             make.height.equalTo(50)
             make.leading.equalTo(view).offset(10)
             make.trailing.equalTo(view).inset(10)
+        }
+        
+        starredUserRepositoriesView.snp.makeConstraints { make in
+            make.top.equalTo(userRepositoriesView.snp.bottom).offset(10)
+            make.height.leading.trailing.equalTo(userRepositoriesView)
         }
     }
     
@@ -154,5 +157,33 @@ extension ProfileViewController {
         button.addTarget(self, action: #selector(logoutButtonPressed), for: .touchUpInside)
         
         return button
+    }
+    
+    func configureRepositoriesView() -> RepositoryListView {
+        let reposView = RepositoryListView()
+        reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
+        reposView.iconContainerView.backgroundColor = .purple
+        reposView.listNameLabel.text = "Repositories"
+        reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
+        reposView.iconView.tintColor = .white
+        reposView.iconView.contentMode = .scaleAspectFit
+        
+        return reposView
+    }
+    
+    func configureStarredView() -> RepositoryListView {
+        let reposView = RepositoryListView()
+        reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
+        reposView.iconContainerView.backgroundColor = .purple
+        reposView.listNameLabel.text = "Repositories"
+        reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
+        reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
+        reposView.iconView.tintColor = .white
+        reposView.iconView.contentMode = .scaleAspectFit
+        
+        return reposView
     }
 }
