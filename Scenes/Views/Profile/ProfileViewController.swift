@@ -7,7 +7,6 @@
 
 import UIKit
 import SnapKit
-import Alamofire
 
 class ProfileViewController: BaseViewController {
     
@@ -176,12 +175,11 @@ extension ProfileViewController {
     func configureStarredView() -> RepositoryListView {
         let reposView = RepositoryListView()
         reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
-        reposView.iconContainerView.backgroundColor = .purple
-        reposView.listNameLabel.text = "Repositories"
+        reposView.iconContainerView.backgroundColor = .yellow
+        reposView.listNameLabel.text = "Starred"
         reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
         reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
-        reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
-        reposView.iconView.tintColor = .white
+        reposView.iconView.image = #imageLiteral(resourceName: "starred")
         reposView.iconView.contentMode = .scaleAspectFit
         
         return reposView
