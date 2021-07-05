@@ -47,6 +47,13 @@ class ProfileViewController: BaseViewController {
     
     //MARK: UI elements
     
+    private lazy var repositoriesViewButton: UIButton = {
+        let button = UIButton(type: .system)
+        button.addTarget(self, action: #selector(repositoriesButtonPressed), for: .touchUpInside)
+        
+        return button
+    }()
+    
     private lazy var userInformationView = UserInformationView()
     
     private lazy var logoutButton: UIButton = {
@@ -69,11 +76,15 @@ class ProfileViewController: BaseViewController {
     //MARK: - Button actions
     
     @objc func logoutButtonPressed() {
-        coordinator?.startRepositoriesViewController()
-
+        
     }
     
     @objc func repositoriesButtonPressed() {
+        coordinator?.startRepositoriesViewController()
+    }
+    
+    @objc func settingsButtonPressed() {
+        
     }
     
     //MARK: - Setup views
@@ -90,6 +101,7 @@ class ProfileViewController: BaseViewController {
         view.addSubview(settingsButton)
         view.addSubview(userRepositoriesView)
         view.addSubview(starredUserRepositoriesView)
+        userRepositoriesView.addSubview(repositoriesViewButton)
     }
     
     //MARK: - Setup constrains
@@ -127,6 +139,10 @@ class ProfileViewController: BaseViewController {
             make.top.equalTo(userRepositoriesView.snp.bottom).offset(10)
             make.height.leading.trailing.equalTo(userRepositoriesView)
         }
+        
+        repositoriesViewButton.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(userRepositoriesView)
+        }
     }
     
     //MARK: - App life cycle
@@ -150,6 +166,7 @@ extension ProfileViewController {
         let image = #imageLiteral(resourceName: "settings").withRenderingMode(.alwaysTemplate)
         button.setImage(image, for: .normal)
         button.imageView?.contentMode = .scaleAspectFit
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
         
         return button
     }
@@ -173,7 +190,6 @@ extension ProfileViewController {
         reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
         reposView.iconView.tintColor = .white
         reposView.iconView.contentMode = .scaleAspectFit
-        reposView.button.addTarget(self, action: #selector(repositoriesButtonPressed), for: .touchUpInside)
         
         return reposView
     }

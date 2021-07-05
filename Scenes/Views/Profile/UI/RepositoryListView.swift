@@ -12,7 +12,6 @@ final class RepositoryListView: BaseView {
     
     //MARK: - UI elements
     
-    let button: UIButton
     let iconContainerView: UIView
     let iconView: UIImageView
     let listNameLabel: UILabel
@@ -25,7 +24,6 @@ final class RepositoryListView: BaseView {
         self.iconView = UIImageView()
         self.listNameLabel = UILabel()
         self.countLabel = UILabel()
-        self.button = UIButton(type: .system)
         
         super.init()
     }
@@ -41,7 +39,6 @@ final class RepositoryListView: BaseView {
         
         makeRoundedCornerEdges()
         
-        self.addSubview(button)
         self.addSubview(listNameLabel)
         self.addSubview(countLabel)
         self.addSubview(iconContainerView)
@@ -52,10 +49,6 @@ final class RepositoryListView: BaseView {
     
     override func setupConstrains() {
         super.setupConstrains()
-        
-        button.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(self)
-        }
         
         iconContainerView.snp.makeConstraints { make in
             make.leading.equalTo(self).offset(10)
