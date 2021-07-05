@@ -39,6 +39,7 @@ class ProfileViewController: BaseViewController {
     private lazy var userRepositoriesView: RepositoryListView = {
         let reposView = RepositoryListView()
         reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
+        reposView.iconContainerView.backgroundColor = .purple
         reposView.listNameLabel.text = "Repositories"
         reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
         reposView.countLabel.textColor = .white.withAlphaComponent(0.8)
@@ -116,7 +117,8 @@ class ProfileViewController: BaseViewController {
         userRepositoriesView.snp.makeConstraints { make in
             make.top.equalTo(userInformationView.snp.bottom)
             make.height.equalTo(50)
-            make.leading.trailing.equalTo(view)
+            make.leading.equalTo(view).offset(10)
+            make.trailing.equalTo(view).inset(10)
         }
     }
     

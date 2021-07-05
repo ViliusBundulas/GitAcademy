@@ -20,6 +20,8 @@ final class RepositoryListView: BaseView {
     
     override init() {
         self.iconContainerView = UIView()
+        self.iconContainerView.layer.cornerRadius = 5
+        self.iconContainerView.clipsToBounds = true
         self.iconView = UIImageView()
         self.listNameLabel = UILabel()
         self.countLabel = UILabel()
@@ -37,11 +39,13 @@ final class RepositoryListView: BaseView {
     override func setupView() {
         super.setupView()
         
+        makeRoundedCornerEdges()
+        
         self.addSubview(button)
-        self.addSubview(iconContainerView)
-        iconContainerView.addSubview(iconView)
         self.addSubview(listNameLabel)
         self.addSubview(countLabel)
+        self.addSubview(iconContainerView)
+        iconContainerView.addSubview(iconView)
     }
     
     //MARK: - setup constrains
@@ -77,5 +81,13 @@ final class RepositoryListView: BaseView {
             make.top.equalTo(self).offset(10)
             make.bottom.equalTo(self).inset(10)
         }
+    }
+}
+
+extension RepositoryListView {
+    
+    func makeRoundedCornerEdges() {
+        self.layer.cornerRadius = 5
+        self.clipsToBounds = true
     }
 }
