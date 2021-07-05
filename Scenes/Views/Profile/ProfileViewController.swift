@@ -149,6 +149,7 @@ class ProfileViewController: BaseViewController {
         viewModel.getUserData()
         viewModel.getUserRepositories()
         viewModel.getUserStarredRepositories()
+        viewModel.getUserFollowers()
     }
 }
 

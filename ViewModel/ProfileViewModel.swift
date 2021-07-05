@@ -23,7 +23,9 @@ class ProfileViewModel {
     var avatarImage = Observable<UIImage?>(nil)
     var repositories = Observable<[Repository]?>(nil)
     var starredRepositories = Observable<[Repository]?>(nil)
+    var userFollowers = Observable<[Repository]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
+    
     
     func getUserData() {
         self.gitApiManager.fetchUserData { result in
@@ -55,6 +57,17 @@ class ProfileViewModel {
                 self.starredRepositories.value = result
             case .failure:
                 print("Failed to get starred repositories")
+            }
+        }
+    }
+    
+    func getUserFollowers() {
+        self.gitApiManager.fetchUserFollowers { result in
+            switch result {
+            case .success(let result):
+                self.userFollowers.value = result
+            case .failure:
+                print("Failed to get user followers")
             }
         }
     }

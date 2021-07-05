@@ -86,4 +86,10 @@ class GitAPIManager {
             completion(response.result)
         }
     }
+    
+    func fetchUserFollowers(completion: @escaping (AFResult<[Repository]>) -> Void) {
+        sessionManager.request(GitRouter.fetchUserFollowers).responseDecodable { (response: AFDataResponse<[Repository]>) in
+            completion(response.result)
+        }
+    }
 }
