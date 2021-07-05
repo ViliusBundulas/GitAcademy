@@ -71,7 +71,7 @@ class RepositoriesViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         viewModel.getUserRepositories()
     }
 }
@@ -86,16 +86,17 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         
         cell.name.text = viewModel.repositories.value?[indexPath.row].name
         cell.repositoryDescription.text = viewModel.repositories.value?[indexPath.row].description
+        cell.starCountLabel.text = "\(viewModel.repositories.value?[indexPath.row].stars ?? 666)"
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        80
+        95
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        80
+        95
     }
 }
 

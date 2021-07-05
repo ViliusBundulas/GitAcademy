@@ -9,10 +9,8 @@ import Foundation
 
 class RepositoryOwner: Decodable {
     let login: String
-    let stars: Int
     
     enum CodingKeys: String, CodingKey {
         case login
-        case stars = "stargazers_count"
     }
 }

@@ -44,6 +44,10 @@ class RepositoriesListCell: UITableViewCell {
         
         self.name.textColor = .white
         self.repositoryDescription.textColor = .white.withAlphaComponent(0.7)
+        self.starIcon.image = #imageLiteral(resourceName: "starred").withRenderingMode(.alwaysTemplate)
+        self.starIcon.tintColor = .white.withAlphaComponent(0.7)
+        self.starIcon.contentMode = .scaleAspectFit
+        self.starCountLabel.textColor = .white.withAlphaComponent(0.5)
         
         setupConstrains()
     }
@@ -63,6 +67,19 @@ class RepositoriesListCell: UITableViewCell {
             make.top.equalTo(name.snp.bottom)
             make.leading.trailing.equalTo(name)
             make.height.equalTo(30)
+        }
+        
+        starIcon.snp.makeConstraints { make in
+            make.top.equalTo(repositoryDescription.snp.bottom)
+            make.leading.equalTo(name)
+            make.height.width.equalTo(15)
+        }
+        
+        starCountLabel.snp.makeConstraints { make in
+            make.top.equalTo(starIcon)
+            make.leading.equalTo(starIcon.snp.trailing).offset(5)
+            make.height.equalTo(starIcon)
+            make.width.equalTo(10)
         }
     }
 }
