@@ -87,16 +87,17 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
         cell.name.text = viewModel.repositories.value?[indexPath.row].name
         cell.repositoryDescription.text = viewModel.repositories.value?[indexPath.row].description
         cell.starCountLabel.text = "\(viewModel.repositories.value?[indexPath.row].stars ?? 666)"
+        cell.language.text = viewModel.repositories.value?[indexPath.row].language
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        95
+        90
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
-        95
+        90
     }
 }
 
