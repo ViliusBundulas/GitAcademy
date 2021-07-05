@@ -23,6 +23,8 @@
 		251AEC00267FDBDC00AA05BA /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */; };
 		2531EFF526933BF9008DFB52 /* StarredRepositories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFF426933BF9008DFB52 /* StarredRepositories.swift */; };
 		2531EFF826938074008DFB52 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFF726938074008DFB52 /* RepositoriesViewController.swift */; };
+		2531EFFA26939915008DFB52 /* RepositoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFF926939915008DFB52 /* RepositoriesListCell.swift */; };
+		2531EFFC26939ADC008DFB52 /* RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */; };
 		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092D2691165A0099A46F /* RepositoryListView.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
@@ -91,6 +93,8 @@
 		251AEBFF267FDBDC00AA05BA /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		2531EFF426933BF9008DFB52 /* StarredRepositories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositories.swift; sourceTree = "<group>"; };
 		2531EFF726938074008DFB52 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		2531EFF926939915008DFB52 /* RepositoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCell.swift; sourceTree = "<group>"; };
+		2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOwner.swift; sourceTree = "<group>"; };
 		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		253E092D2691165A0099A46F /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -262,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				2531EFF726938074008DFB52 /* RepositoriesViewController.swift */,
+				2531EFF926939915008DFB52 /* RepositoriesListCell.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				25B5E70F2683562400F4997E /* Repository.swift */,
 				2568A88B268B3A8B00821960 /* UserData.swift */,
 				2531EFF426933BF9008DFB52 /* StarredRepositories.swift */,
+				2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -514,6 +520,7 @@
 				25B5E7092683448F00F4997E /* SecureStore.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
 				25B5E7122683562400F4997E /* Repository.swift in Sources */,
+				2531EFFC26939ADC008DFB52 /* RepositoryOwner.swift in Sources */,
 				25B5E7112683562400F4997E /* Repositories.swift in Sources */,
 				25B5E71A2683601800F4997E /* GitAPIManager.swift in Sources */,
 				2568A88C268B3A8B00821960 /* UserData.swift in Sources */,
@@ -529,6 +536,7 @@
 				253E092C269068820099A46F /* UserInformationView.swift in Sources */,
 				251AEC00267FDBDC00AA05BA /* ProfileViewController.swift in Sources */,
 				251AEBC32678943500AA05BA /* GitAcademy.xcdatamodeld in Sources */,
+				2531EFFA26939915008DFB52 /* RepositoriesListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
