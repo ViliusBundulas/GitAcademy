@@ -69,6 +69,11 @@ class ProfileViewController: BaseViewController {
     //MARK: - Button actions
     
     @objc func logoutButtonPressed() {
+        coordinator?.startRepositoriesViewController()
+
+    }
+    
+    @objc func repositoriesButtonPressed() {
     }
     
     //MARK: - Setup views
@@ -168,6 +173,7 @@ extension ProfileViewController {
         reposView.iconView.image = #imageLiteral(resourceName: "repositories").withRenderingMode(.alwaysTemplate)
         reposView.iconView.tintColor = .white
         reposView.iconView.contentMode = .scaleAspectFit
+        reposView.button.addTarget(self, action: #selector(repositoriesButtonPressed), for: .touchUpInside)
         
         return reposView
     }

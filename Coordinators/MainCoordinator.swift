@@ -27,6 +27,13 @@ class MainCoordinator: CoordinatorProtocol {
     
     func startProfileViewController() {
         let vc = viewControllersFactory.makeProfileViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func startRepositoriesViewController() {
+        let vc = viewControllersFactory.makeRepositoriesViewController()
+        vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
 }
