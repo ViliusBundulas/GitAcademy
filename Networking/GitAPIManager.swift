@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import Alamofire
-import AlamofireImage
 
 class GitAPIManager {
     //  static let shared = GitAPIManager()
@@ -69,14 +68,11 @@ class GitAPIManager {
             }
     }
     
-    func fetchUserRepositories(completion: @escaping ([Repository]) -> Void) {
-        sessionManager.request(GitRouter.fetchUserRepositories)
-            .responseDecodable(of: [Repository].self) { response in
-                guard let repositories = response.value else {
-                    return completion([])
-                }
-                completion(repositories)
-            }
+    func fetchUserRepositories(completion: @escaping (AFResult<[Repository]>) -> Void) {
+      sessionManager.request(GitRouter.fetchUserRepositories)
+        .responseDecodable { (response: AFDataResponse<[Repository]>) in
+            completion(response.result)
+        }
     }
     
     func fetchUserData(completion: @escaping (AFResult<UserData>) -> Void) {

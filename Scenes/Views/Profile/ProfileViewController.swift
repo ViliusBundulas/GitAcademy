@@ -58,6 +58,7 @@ class ProfileViewController: BaseViewController {
     
     override func setupView() {
         super.setupView()
+
         bindViewModel()
         
         view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
@@ -111,5 +112,6 @@ class ProfileViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         viewModel.getUserData()
+        viewModel.getUserRepositories()
     }
 }

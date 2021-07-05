@@ -21,6 +21,7 @@ class ProfileViewModel {
     
     var item = Observable<UserData?>(nil)
     var avatarImage = Observable<UIImage?>(nil)
+    var repositories = Observable<[Repository]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
     func getUserData() {
@@ -31,6 +32,17 @@ class ProfileViewModel {
                 self.downloadImage(with: result.avatarURL)
             case .failure:
                 print("failed to get user data")
+            }
+        }
+    }
+    
+    func getUserRepositories() {
+        self.gitApiManager.fetchUserRepositories { result in
+            switch result {
+            case .success(let result):
+                self.repositories.value = result
+            case .failure:
+                print("Failed to get user repositories")
             }
         }
     }
