@@ -46,7 +46,6 @@ class UserInformationView: BaseView {
         self.followersIcon.image = #imageLiteral(resourceName: "followers").withRenderingMode(.alwaysTemplate)
         self.followersIcon.tintColor = .white
         
-        
         self.followersContainer = UIView()
         
         self.followersLabel = UILabel()

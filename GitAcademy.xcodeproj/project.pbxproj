@@ -265,10 +265,18 @@
 		2531EFF626938059008DFB52 /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
+				2531EFFD2693A076008DFB52 /* UI */,
 				2531EFF726938074008DFB52 /* RepositoriesViewController.swift */,
-				2531EFF926939915008DFB52 /* RepositoriesListCell.swift */,
 			);
 			path = Repositories;
+			sourceTree = "<group>";
+		};
+		2531EFFD2693A076008DFB52 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2531EFF926939915008DFB52 /* RepositoriesListCell.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 		253E0928269067C80099A46F /* Profile */ = {
