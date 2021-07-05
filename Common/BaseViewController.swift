@@ -24,10 +24,10 @@ class BaseViewController: UIViewController {
 extension BaseViewController {
     
     func configureNavigationController() {
-        navigationController?.setNavigationBarHidden(true, animated: true)
-//        navigationController?.navigationBar.isTranslucent = true
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-//        navigationController?.navigationBar.tintColor = .white
-//        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.tintColor = .white
+        navigationController?.navigationBar.shadowImage = UIImage()
     }
 }

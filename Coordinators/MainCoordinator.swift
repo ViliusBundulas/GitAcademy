@@ -36,4 +36,8 @@ class MainCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func dismiss() {
+        navigationController.popViewController(animated: true)
+    }
 }

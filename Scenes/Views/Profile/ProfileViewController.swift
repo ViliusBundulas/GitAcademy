@@ -47,11 +47,8 @@ class ProfileViewController: BaseViewController {
     
     //MARK: UI elements
     
-    private lazy var repositoriesViewButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.addTarget(self, action: #selector(repositoriesButtonPressed), for: .touchUpInside)
-        
-        return button
+    private lazy var repositoriesViewButton: UITapGestureRecognizer = {
+        configureGestureRecogniser()
     }()
     
     private lazy var userInformationView = UserInformationView()
@@ -79,7 +76,7 @@ class ProfileViewController: BaseViewController {
         
     }
     
-    @objc func repositoriesButtonPressed() {
+    @objc func repositoriesButtonPressed(sender: UITapGestureRecognizer) {
         coordinator?.startRepositoriesViewController()
     }
     
@@ -101,7 +98,8 @@ class ProfileViewController: BaseViewController {
         view.addSubview(settingsButton)
         view.addSubview(userRepositoriesView)
         view.addSubview(starredUserRepositoriesView)
-        userRepositoriesView.addSubview(repositoriesViewButton)
+        
+        userRepositoriesView.addGestureRecognizer(repositoriesViewButton)
     }
     
     //MARK: - Setup constrains
@@ -139,16 +137,14 @@ class ProfileViewController: BaseViewController {
             make.top.equalTo(userRepositoriesView.snp.bottom).offset(10)
             make.height.leading.trailing.equalTo(userRepositoriesView)
         }
-        
-        repositoriesViewButton.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(userRepositoriesView)
-        }
     }
     
     //MARK: - App life cycle
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         viewModel.getUserData()
         viewModel.getUserRepositories()
@@ -183,6 +179,7 @@ extension ProfileViewController {
     func configureRepositoriesView() -> RepositoryListView {
         let reposView = RepositoryListView()
         reposView.backgroundColor = UIColor(red: 35.0/255, green: 37.0/255, blue: 42.0/255, alpha: 1.0)
+        reposView.isUserInteractionEnabled = true
         reposView.iconContainerView.backgroundColor = .purple
         reposView.listNameLabel.text = "Repositories"
         reposView.listNameLabel.textColor = .white.withAlphaComponent(0.8)
@@ -205,5 +202,11 @@ extension ProfileViewController {
         reposView.iconView.contentMode = .scaleAspectFit
         
         return reposView
+    }
+    
+    func configureGestureRecogniser() -> UITapGestureRecognizer {
+        let button = UITapGestureRecognizer(target: self, action: #selector(repositoriesButtonPressed))
+        
+        return button
     }
 }
