@@ -59,9 +59,9 @@ class LoginViewModel: NSObject, ObservableObject {
             self.gitApiManager.fetchAccessToken(accessCode: value) { result in
                 switch result {
                 case .success:
-                    print("Successfully fetched access token")
-                    guard let token = TokenManager.shared.fetchAccessToken() else { return }
-                    print("This is our token \(token)")
+//                    print("Successfully fetched access token")
+//                    guard let token = TokenManager.shared.fetchAccessToken() else { return }
+//                    print("This is our token \(token)")
                     self.isLoading.value = false
                     self.onDismiss?()
                 case .failure:

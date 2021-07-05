@@ -47,6 +47,18 @@ class ProfileViewModel {
         }
     }
     
+    func getUserStarredRepositories() {
+        self.gitApiManager.fetchUserRepositories { result in
+            switch result {
+            case .success(let result):
+                print("This is my starred repositories count number --> \(result.count)")
+                print(result)
+            case .failure:
+                print("Failed to get starred repositories")
+            }
+        }
+    }
+    
     func downloadImage(with urlString : String){
         guard let url = URL.init(string: urlString) else {
             return

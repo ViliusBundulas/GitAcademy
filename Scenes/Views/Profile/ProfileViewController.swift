@@ -86,7 +86,7 @@ class ProfileViewController: BaseViewController {
         }
         
         viewModel.repositories.bind { repos in
-            self.userRepositoriesView.countLabel.text = "\(repos?.count ?? 0) >"
+            self.userRepositoriesView.countLabel.text = "\(repos?.count ?? 0)  >"
         }
     }
     
@@ -129,6 +129,7 @@ class ProfileViewController: BaseViewController {
         
         viewModel.getUserData()
         viewModel.getUserRepositories()
+        viewModel.getUserStarredRepositories()
     }
 }
 

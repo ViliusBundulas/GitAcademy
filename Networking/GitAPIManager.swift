@@ -80,4 +80,10 @@ class GitAPIManager {
             completion(response.result)
         }
     }
+    
+    func fetchStarredRepositories(completion: @escaping (AFResult<[Repository]>) -> Void) {
+        sessionManager.request(GitRouter.fetchStarredRepositories).responseDecodable { (response: AFDataResponse<[Repository]>) in
+            completion(response.result)
+        }
+    }
 }
