@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class FollowersListViewController: BaseViewController {
     
@@ -27,10 +28,6 @@ class FollowersListViewController: BaseViewController {
     
     func bindViewModel() {
         viewModel.userFollowers.bind { [unowned self] items in
-            self.followersListtableView.reloadData()
-        }
-        
-        viewModel.followerPicture.bind { [unowned self] image in
             self.followersListtableView.reloadData()
         }
     }
@@ -84,12 +81,10 @@ extension FollowersListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCell
         
-        viewModel.downloadFollowerPicture(with: viewModel.userFollowers.value?[indexPath.row].avatarURL ?? "")
-        
         cell.userPictureContainer.backgroundColor = .red
         cell.username.text = viewModel.userFollowers.value?[indexPath.row].login
         cell.numberOfFollowers.text = "\(viewModel.userFollowers.value?[indexPath.row].id ?? 6969)"
-        cell.userPicture.image = viewModel.followerPicture.value
+        cell.userPicture.kf.setImage(with: URL(string: viewModel.userFollowers.value?[indexPath.row].avatarURL ?? "a"))
 
         
         return cell

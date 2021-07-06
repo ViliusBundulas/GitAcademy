@@ -41,7 +41,7 @@ enum GitRouter {
         case .fetchStarredRepositories:
             return "/user/starred"
         case .fetchUserFollowers:
-            return "/user/followers"
+            return "/user/following"
         }
     }
     

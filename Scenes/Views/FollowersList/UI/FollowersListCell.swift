@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class FollowersListCell: UITableViewCell {
     
@@ -21,6 +22,10 @@ class FollowersListCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
         configureCell()
+    }
+    
+    func setImage(url: String) {
+        self.userPicture.kf.setImage(with: URL(string: url))
     }
     
     required init?(coder: NSCoder) {
