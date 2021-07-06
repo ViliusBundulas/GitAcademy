@@ -34,7 +34,7 @@ class RepositoriesViewController: BaseViewController {
     //MARK: - UI elements
     
     private lazy var repositoryListTableView: UITableView = {
-        let tableView = SelfSizingTableView(frame: view.frame)
+        let tableView = UITableView()
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(RepositoriesListCell.self, forCellReuseIdentifier: "RepositoriesListCell")
@@ -101,19 +101,19 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     }
 }
 
-class SelfSizingTableView: UITableView {
-    override var intrinsicContentSize: CGSize {
-        // AutoLayout uses intrinsicContentSize.height
-        // instead of heightConstraint to determine
-        // element height in UI
-        return contentSize
-    }
-    
-    override var contentSize: CGSize {
-        didSet {
-            // When content size changes, force recalculation of
-            // intristic content size
-            invalidateIntrinsicContentSize()
-        }
-    }
-}
+//class SelfSizingTableView: UITableView {
+//    override var intrinsicContentSize: CGSize {
+//        // AutoLayout uses intrinsicContentSize.height
+//        // instead of heightConstraint to determine
+//        // element height in UI
+//        return contentSize
+//    }
+//
+//    override var contentSize: CGSize {
+//        didSet {
+//            // When content size changes, force recalculation of
+//            // intristic content size
+//            invalidateIntrinsicContentSize()
+//        }
+//    }
+//}

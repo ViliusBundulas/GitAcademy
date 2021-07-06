@@ -6,3 +6,89 @@
 //
 
 import Foundation
+import UIKit
+
+class FollowersListCell: UITableViewCell {
+    
+    //MARK: - UI elements
+    
+    let userPicture = UIImageView()
+    let userPictureContainer = UIView()
+    let username = UILabel()
+    let numberOfFollowers = UILabel()
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+
+        configureCell()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: - Cell configuration
+    
+    func configureCell() {
+        self.userPictureContainer.addSubview(userPicture)
+        self.contentView.addSubview(userPictureContainer)
+        self.contentView.addSubview(username)
+        self.contentView.addSubview(numberOfFollowers)
+        
+        configureUserPicture()
+        configureNumberOfFollowersLabel()
+        configureUsernameLabel()
+        configureUserPictureContainer()
+        
+        setupConstrains()
+    }
+    
+    //MARK: - Setup constrains
+    
+    func setupConstrains() {
+        
+        userPictureContainer.snp.makeConstraints { make in
+            make.top.leading.equalTo(contentView)
+            make.height.width.equalTo(100)
+        }
+        
+        userPicture.snp.makeConstraints { make in
+            make.top.leading.equalTo(contentView)
+            make.height.width.equalTo(100)
+        }
+        
+        numberOfFollowers.snp.makeConstraints { make in
+            make.top.trailing.equalTo(contentView)
+            make.height.equalTo(userPictureContainer)
+            make.width.equalTo(70)
+        }
+        
+        username.snp.makeConstraints { make in
+            make.top.bottom.equalTo(userPictureContainer)
+            make.leading.equalTo(userPictureContainer.snp.trailing).offset(10)
+            make.trailing.equalTo(numberOfFollowers.snp.leading).inset(10)
+        }
+    }
+}
+
+extension FollowersListCell {
+    
+    func configureUserPicture() {
+        self.userPicture.clipsToBounds = true
+        self.userPicture.contentMode = .scaleAspectFit
+    }
+    
+    func configureUserPictureContainer() {
+        self.userPictureContainer.layer.masksToBounds = false
+        self.userPictureContainer.layer.cornerRadius = 60
+        self.userPictureContainer.clipsToBounds = true
+    }
+    
+    func configureNumberOfFollowersLabel() {
+        
+    }
+    
+    func configureUsernameLabel() {
+        
+    }
+}

@@ -23,19 +23,84 @@ class FollowersListViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - Observable data binding
+    
+    func bindViewModel() {
+        viewModel.userFollowers.bind { [unowned self] items in
+            self.followersListtableView.reloadData()
+        }
+        
+//        viewModel.followerPicture.bind { [unowned self] image in
+//            self.followersListtableView.reloadData()
+//        }
+    }
+    
     //MARK: - UI elements
+    
+    private lazy var followersListtableView: UITableView = {
+       let tableView = UITableView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(FollowersListCell.self, forCellReuseIdentifier: "FollowersListCell")
+        tableView.backgroundColor = .none
+        
+        return tableView
+    }()
     
     //MARK: - Setup views
     
     override func setupView() {
         super.setupView()
         
+        bindViewModel()
+        
         view.backgroundColor = .systemGray2
+        
+        view.addSubview(followersListtableView)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        viewModel.getUserFollowers()
     }
     
     //MARK: - Setup constrains
     
     override func setupConstrains() {
         super.setupConstrains()
+        
+        followersListtableView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
+}
+
+extension FollowersListViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.userFollowers.value?.count ?? 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCell
+        
+        cell.userPictureContainer.backgroundColor = .red
+        cell.username.text = viewModel.userFollowers.value?[indexPath.row].login
+        cell.numberOfFollowers.text = "\(viewModel.userFollowers.value?[indexPath.row].id ?? 6969)"
+//        cell.userPicture.image = viewModel.followerPicture.value
+//        cell.name.text = viewModel.repositories.value?[indexPath.row].name
+//        cell.repositoryDescription.text = viewModel.repositories.value?[indexPath.row].description
+//        cell.starCountLabel.text = "\(viewModel.repositories.value?[indexPath.row].stars ?? 666)"
+//        cell.language.text = viewModel.repositories.value?[indexPath.row].language
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        110
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        110
     }
 }

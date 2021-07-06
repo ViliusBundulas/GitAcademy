@@ -27,6 +27,7 @@
 		2531EFFC26939ADC008DFB52 /* RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */; };
 		2531F0012693D768008DFB52 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0002693D768008DFB52 /* FollowersListViewController.swift */; };
 		2531F0042693DC64008DFB52 /* FollowersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0032693DC64008DFB52 /* FollowersListCell.swift */; };
+		2531F0062693E9CA008DFB52 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0052693E9C9008DFB52 /* Follower.swift */; };
 		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092D2691165A0099A46F /* RepositoryListView.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
@@ -99,6 +100,7 @@
 		2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOwner.swift; sourceTree = "<group>"; };
 		2531F0002693D768008DFB52 /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
 		2531F0032693DC64008DFB52 /* FollowersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListCell.swift; sourceTree = "<group>"; };
+		2531F0052693E9C9008DFB52 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		253E092D2691165A0099A46F /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -344,6 +346,7 @@
 				2568A88B268B3A8B00821960 /* UserData.swift */,
 				2531EFF426933BF9008DFB52 /* StarredRepositories.swift */,
 				2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */,
+				2531F0052693E9C9008DFB52 /* Follower.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */,
 				2531F0012693D768008DFB52 /* FollowersListViewController.swift in Sources */,
 				25B5E7132683562400F4997E /* Commit.swift in Sources */,
+				2531F0062693E9CA008DFB52 /* Follower.swift in Sources */,
 				25B5E70B2683559E00F4997E /* SecureStoreError.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
 				251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */,

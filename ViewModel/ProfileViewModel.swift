@@ -23,8 +23,9 @@ class ProfileViewModel {
     var avatarImage = Observable<UIImage?>(nil)
     var repositories = Observable<[Repository]?>(nil)
     var starredRepositories = Observable<[Repository]?>(nil)
-    var userFollowers = Observable<[Repository]?>(nil)
+    var userFollowers = Observable<[Follower]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
+//    var followerPicture = Observable<UIImage?>(nil)
     
     
     func getUserData() {
@@ -66,6 +67,7 @@ class ProfileViewModel {
             switch result {
             case .success(let result):
                 self.userFollowers.value = result
+//                self.downloadImage(with: result.first?.avatarURL ?? "No image")
             case .failure:
                 print("Failed to get user followers")
             }
@@ -82,6 +84,7 @@ class ProfileViewModel {
             switch result {
             case .success(let value):
                 self.avatarImage.value = value.image
+//                self.followerPicture.value = value.image
             case .failure(let error):
                 print("Error: \(error)")
             }
