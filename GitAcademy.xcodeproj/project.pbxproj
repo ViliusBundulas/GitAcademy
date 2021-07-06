@@ -30,6 +30,7 @@
 		2531F0062693E9CA008DFB52 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0052693E9C9008DFB52 /* Follower.swift */; };
 		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092D2691165A0099A46F /* RepositoryListView.swift */; };
+		25546267269471BD0045FD5F /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25546266269471BD0045FD5F /* FollowingListViewController.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
 		2568A88C268B3A8B00821960 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88B268B3A8B00821960 /* UserData.swift */; };
 		2568A88E268B561C00821960 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88D268B561C00821960 /* Observable.swift */; };
@@ -103,6 +104,7 @@
 		2531F0052693E9C9008DFB52 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		253E092D2691165A0099A46F /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
+		25546266269471BD0045FD5F /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2568A88B268B3A8B00821960 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2568A88D268B561C00821960 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		2531EFFF2693D74E008DFB52 /* FollowingList */ = {
 			isa = PBXGroup;
 			children = (
+				25546266269471BD0045FD5F /* FollowingListViewController.swift */,
 			);
 			path = FollowingList;
 			sourceTree = "<group>";
@@ -550,6 +553,7 @@
 				2531F0012693D768008DFB52 /* FollowersListViewController.swift in Sources */,
 				25B5E7132683562400F4997E /* Commit.swift in Sources */,
 				2531F0062693E9CA008DFB52 /* Follower.swift in Sources */,
+				25546267269471BD0045FD5F /* FollowingListViewController.swift in Sources */,
 				25B5E70B2683559E00F4997E /* SecureStoreError.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
 				251AEBF7267A2CDB00AA05BA /* MainCoordinator.swift in Sources */,

@@ -24,6 +24,7 @@ class ProfileViewModel {
     var repositories = Observable<[Repository]?>(nil)
     var starredRepositories = Observable<[Repository]?>(nil)
     var userFollowers = Observable<[Follower]?>(nil)
+    var userFollowing = Observable<[Follower]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
     
@@ -66,6 +67,17 @@ class ProfileViewModel {
             switch result {
             case .success(let result):
                 self.userFollowers.value = result
+            case .failure:
+                print("Failed to get user followers")
+            }
+        }
+    }
+    
+    func getUserFollowing() {
+        self.gitApiManager.fetchUserFollowing { result in
+            switch result {
+            case .success(let result):
+                self.userFollowing.value = result
             case .failure:
                 print("Failed to get user followers")
             }

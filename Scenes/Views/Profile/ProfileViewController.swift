@@ -91,7 +91,7 @@ class ProfileViewController: BaseViewController {
     }
     
     @objc func followingButtonPressed() {
-        
+        coordinator?.startFollowingListViewController()
     }
     
     //MARK: - Setup views

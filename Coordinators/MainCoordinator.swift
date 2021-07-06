@@ -46,4 +46,10 @@ class MainCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func startFollowingListViewController() {
+        let vc = viewControllersFactory.makeFollowingListViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
