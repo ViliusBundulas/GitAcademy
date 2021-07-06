@@ -26,6 +26,9 @@ class UserInformationView: BaseView {
     let followingLabel: UILabel
     let followingNumberLabel: UILabel
     
+    let followersTapGesture: UITapGestureRecognizer
+    let followingTapGesture: UITapGestureRecognizer
+    
     override init() {
         
         self.avatarViewContainer = UIView()
@@ -68,6 +71,9 @@ class UserInformationView: BaseView {
         self.followingNumberLabel.textColor = .white
         self.followingNumberLabel.textAlignment = .center
         
+        self.followersTapGesture = UITapGestureRecognizer()
+        self.followingTapGesture = UITapGestureRecognizer()
+        
         super.init()
     }
     
@@ -90,10 +96,12 @@ class UserInformationView: BaseView {
         self.addSubview(followersContainer)
         followersContainer.addSubview(followersLabel)
         followersContainer.addSubview(followersNumberLabel)
+        followersContainer.addGestureRecognizer(followersTapGesture)
         
         self.addSubview(followingContainer)
         followingContainer.addSubview(followingLabel)
         followingContainer.addSubview(followingNumberLabel)
+        followingContainer.addGestureRecognizer(followingTapGesture)
     }
     
     //MARK: - Setup constrains

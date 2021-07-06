@@ -25,6 +25,8 @@
 		2531EFF826938074008DFB52 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFF726938074008DFB52 /* RepositoriesViewController.swift */; };
 		2531EFFA26939915008DFB52 /* RepositoriesListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFF926939915008DFB52 /* RepositoriesListCell.swift */; };
 		2531EFFC26939ADC008DFB52 /* RepositoryOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */; };
+		2531F0012693D768008DFB52 /* FollowersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0002693D768008DFB52 /* FollowersListViewController.swift */; };
+		2531F0042693DC64008DFB52 /* FollowersListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2531F0032693DC64008DFB52 /* FollowersListCell.swift */; };
 		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092D2691165A0099A46F /* RepositoryListView.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
@@ -95,6 +97,8 @@
 		2531EFF726938074008DFB52 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
 		2531EFF926939915008DFB52 /* RepositoriesListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesListCell.swift; sourceTree = "<group>"; };
 		2531EFFB26939ADC008DFB52 /* RepositoryOwner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryOwner.swift; sourceTree = "<group>"; };
+		2531F0002693D768008DFB52 /* FollowersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListViewController.swift; sourceTree = "<group>"; };
+		2531F0032693DC64008DFB52 /* FollowersListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersListCell.swift; sourceTree = "<group>"; };
 		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		253E092D2691165A0099A46F /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
@@ -237,6 +241,8 @@
 		251AEBF22678B65D00AA05BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2531EFFF2693D74E008DFB52 /* FollowingList */,
+				2531EFFE2693D732008DFB52 /* FollowersList */,
 				2531EFF626938059008DFB52 /* Repositories */,
 				253E092A269067E80099A46F /* Login */,
 				253E0928269067C80099A46F /* Profile */,
@@ -275,6 +281,30 @@
 			isa = PBXGroup;
 			children = (
 				2531EFF926939915008DFB52 /* RepositoriesListCell.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		2531EFFE2693D732008DFB52 /* FollowersList */ = {
+			isa = PBXGroup;
+			children = (
+				2531F0022693DC4F008DFB52 /* UI */,
+				2531F0002693D768008DFB52 /* FollowersListViewController.swift */,
+			);
+			path = FollowersList;
+			sourceTree = "<group>";
+		};
+		2531EFFF2693D74E008DFB52 /* FollowingList */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FollowingList;
+			sourceTree = "<group>";
+		};
+		2531F0022693DC4F008DFB52 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				2531F0032693DC64008DFB52 /* FollowersListCell.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -514,6 +544,7 @@
 				2592D701268535A3004ABBD1 /* CustomButton.swift in Sources */,
 				25B5E71C2683604000F4997E /* GitRouter.swift in Sources */,
 				251AEBFE267BFD7C00AA05BA /* ViewControllersFactory.swift in Sources */,
+				2531F0012693D768008DFB52 /* FollowersListViewController.swift in Sources */,
 				25B5E7132683562400F4997E /* Commit.swift in Sources */,
 				25B5E70B2683559E00F4997E /* SecureStoreError.swift in Sources */,
 				251AEBEF2678946E00AA05BA /* LoginViewController.swift in Sources */,
@@ -525,6 +556,7 @@
 				25B5E70626833A5600F4997E /* GitHubAccessToken.swift in Sources */,
 				251AEBF5267A1D7800AA05BA /* CoordinatorProtocol.swift in Sources */,
 				253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */,
+				2531F0042693DC64008DFB52 /* FollowersListCell.swift in Sources */,
 				25B5E7092683448F00F4997E /* SecureStore.swift in Sources */,
 				251AEBBE2678943500AA05BA /* SceneDelegate.swift in Sources */,
 				25B5E7122683562400F4997E /* Repository.swift in Sources */,

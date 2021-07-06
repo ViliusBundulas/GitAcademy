@@ -51,7 +51,9 @@ class ProfileViewController: BaseViewController {
         configureGestureRecogniser()
     }()
     
-    private lazy var userInformationView = UserInformationView()
+    private lazy var userInformationView: UserInformationView = {
+        configureUserInformationView()
+    }()
     
     private lazy var logoutButton: UIButton = {
         configureLogoutButton()
@@ -81,6 +83,14 @@ class ProfileViewController: BaseViewController {
     }
     
     @objc func settingsButtonPressed() {
+        
+    }
+    
+    @objc func followersButtonPressed() {
+        coordinator?.startFollowersListViewController()
+    }
+    
+    @objc func followingButtonPressed() {
         
     }
     
@@ -209,5 +219,13 @@ extension ProfileViewController {
         let button = UITapGestureRecognizer(target: self, action: #selector(repositoriesButtonPressed))
         
         return button
+    }
+    
+    func configureUserInformationView() -> UserInformationView {
+        let userView = UserInformationView()
+        userView.followersTapGesture.addTarget(self, action: #selector(followersButtonPressed))
+        userView.followingTapGesture.addTarget(self, action: #selector(followingButtonPressed))
+        
+        return userView
     }
 }

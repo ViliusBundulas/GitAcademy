@@ -40,4 +40,10 @@ class MainCoordinator: CoordinatorProtocol {
     func dismiss() {
         navigationController.popViewController(animated: true)
     }
+    
+    func startFollowersListViewController() {
+        let vc = viewControllersFactory.makeFollowersListViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
