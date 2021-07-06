@@ -48,13 +48,15 @@ class FollowersListCell: UITableViewCell {
     func setupConstrains() {
         
         userPictureContainer.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentView)
-            make.height.width.equalTo(100)
+            make.top.equalTo(contentView)
+            make.leading.equalTo(contentView)
+            make.width.height.equalTo(80)
         }
         
         userPicture.snp.makeConstraints { make in
-            make.top.leading.equalTo(contentView)
-            make.height.width.equalTo(100)
+            make.top.equalTo(contentView)
+            make.leading.equalTo(contentView)
+            make.width.height.equalTo(80)
         }
         
         numberOfFollowers.snp.makeConstraints { make in
@@ -80,7 +82,7 @@ extension FollowersListCell {
     
     func configureUserPictureContainer() {
         self.userPictureContainer.layer.masksToBounds = false
-        self.userPictureContainer.layer.cornerRadius = 60
+        self.userPictureContainer.layer.cornerRadius = 40
         self.userPictureContainer.clipsToBounds = true
     }
     
