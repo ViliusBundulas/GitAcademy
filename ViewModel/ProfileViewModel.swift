@@ -25,7 +25,7 @@ class ProfileViewModel {
     var starredRepositories = Observable<[Repository]?>(nil)
     var userFollowers = Observable<[Follower]?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
-//    var followerPicture = Observable<UIImage?>(nil)
+    var followerPicture = Observable<UIImage?>(nil)
     
     
     func getUserData() {
@@ -67,9 +67,25 @@ class ProfileViewModel {
             switch result {
             case .success(let result):
                 self.userFollowers.value = result
-//                self.downloadImage(with: result.first?.avatarURL ?? "No image")
+//                self.downloadFollowerPicture(with: result.first?.avatarURL ?? "No image")
             case .failure:
                 print("Failed to get user followers")
+            }
+        }
+    }
+    
+    func downloadFollowerPicture(with urlString : String){
+        guard let url = URL.init(string: urlString) else {
+            return
+        }
+        let resource = ImageResource(downloadURL: url)
+
+        KingfisherManager.shared.retrieveImage(with: resource, options: nil, progressBlock: nil) { result in
+            switch result {
+            case .success(let value):
+                self.followerPicture.value = value.image
+            case .failure(let error):
+                print("Error: \(error)")
             }
         }
     }
@@ -84,7 +100,6 @@ class ProfileViewModel {
             switch result {
             case .success(let value):
                 self.avatarImage.value = value.image
-//                self.followerPicture.value = value.image
             case .failure(let error):
                 print("Error: \(error)")
             }

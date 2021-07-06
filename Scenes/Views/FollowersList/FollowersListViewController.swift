@@ -30,9 +30,9 @@ class FollowersListViewController: BaseViewController {
             self.followersListtableView.reloadData()
         }
         
-//        viewModel.followerPicture.bind { [unowned self] image in
-//            self.followersListtableView.reloadData()
-//        }
+        viewModel.followerPicture.bind { [unowned self] image in
+            self.followersListtableView.reloadData()
+        }
     }
     
     //MARK: - UI elements
@@ -84,14 +84,13 @@ extension FollowersListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCell
         
+        viewModel.downloadFollowerPicture(with: viewModel.userFollowers.value?[indexPath.row].avatarURL ?? "")
+        
         cell.userPictureContainer.backgroundColor = .red
         cell.username.text = viewModel.userFollowers.value?[indexPath.row].login
         cell.numberOfFollowers.text = "\(viewModel.userFollowers.value?[indexPath.row].id ?? 6969)"
-//        cell.userPicture.image = viewModel.followerPicture.value
-//        cell.name.text = viewModel.repositories.value?[indexPath.row].name
-//        cell.repositoryDescription.text = viewModel.repositories.value?[indexPath.row].description
-//        cell.starCountLabel.text = "\(viewModel.repositories.value?[indexPath.row].stars ?? 666)"
-//        cell.language.text = viewModel.repositories.value?[indexPath.row].language
+        cell.userPicture.image = viewModel.followerPicture.value
+
         
         return cell
     }
