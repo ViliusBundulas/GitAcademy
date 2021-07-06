@@ -40,6 +40,8 @@ class FollowersListCell: UITableViewCell {
         self.contentView.addSubview(username)
         self.contentView.addSubview(numberOfFollowers)
         
+        self.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
+        
         configureUserPicture()
         configureNumberOfFollowersLabel()
         configureUsernameLabel()
@@ -53,21 +55,24 @@ class FollowersListCell: UITableViewCell {
     func setupConstrains() {
         
         userPictureContainer.snp.makeConstraints { make in
-            make.top.equalTo(contentView)
-            make.leading.equalTo(contentView)
-            make.width.height.equalTo(80)
+            make.top.equalTo(contentView).offset(10)
+            make.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(contentView).offset(10)
+            make.width.equalTo(60)
         }
         
         userPicture.snp.makeConstraints { make in
-            make.top.equalTo(contentView)
-            make.leading.equalTo(contentView)
-            make.width.height.equalTo(80)
+            make.top.equalTo(contentView).offset(10)
+            make.bottom.equalTo(contentView).inset(10)
+            make.leading.equalTo(contentView).offset(10)
+            make.width.equalTo(60)
         }
         
         numberOfFollowers.snp.makeConstraints { make in
-            make.top.trailing.equalTo(contentView)
-            make.height.equalTo(userPictureContainer)
-            make.width.equalTo(70)
+            make.trailing.equalTo(contentView).inset(10)
+            make.centerY.equalTo(username)
+            make.height.equalTo(username)
+            make.width.equalTo(120)
         }
         
         username.snp.makeConstraints { make in
@@ -87,15 +92,16 @@ extension FollowersListCell {
     
     func configureUserPictureContainer() {
         self.userPictureContainer.layer.masksToBounds = false
-        self.userPictureContainer.layer.cornerRadius = 40
+        self.userPictureContainer.layer.cornerRadius = 30
         self.userPictureContainer.clipsToBounds = true
     }
     
     func configureNumberOfFollowersLabel() {
-        
+        self.numberOfFollowers.textColor = .white.withAlphaComponent(0.8)
     }
     
     func configureUsernameLabel() {
-        
+        self.username.textColor = .white.withAlphaComponent(0.8)
     }
 }
+
