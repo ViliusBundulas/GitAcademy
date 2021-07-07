@@ -14,8 +14,8 @@
             filePath = "ViewModel/ProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "105"
-            endingLineNumber = "105"
+            startingLineNumber = "112"
+            endingLineNumber = "112"
             landmarkName = "downloadImage(with:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -24,15 +24,15 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "100C71A4-4A63-4DD2-885A-27DF7A937A90"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ViewModel/ProfileViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
-            landmarkName = "getSelectedFollowing(at:)"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
+            landmarkName = "getSelectedFollowingUser(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

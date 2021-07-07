@@ -25,7 +25,8 @@ class ProfileViewModel {
     var starredRepositories = Observable<[Repository]?>(nil)
     var userFollowers = Observable<[Follower]?>(nil)
     var userFollowing = Observable<[Follower]?>(nil)
-    var user = Observable<Follower?>(nil)
+    var selectedFollowingUser = Observable<Follower?>(nil)
+    var selectedFollowerUser = Observable<Follower?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
     
@@ -85,8 +86,14 @@ class ProfileViewModel {
         }
     }
     
-    func getSelectedFollowing(at index: Int) {
-        self.user.value = self.userFollowing.value?[index]
+    func getSelectedFollowingUser(at index: Int) {
+        self.selectedFollowingUser.value = self.userFollowing.value?[index]
+        print(self.selectedFollowingUser.value?.login)
+    }
+    
+    func getSelectedFollowerUser(at index: Int) {
+        self.selectedFollowerUser.value = self.userFollowers.value?[index]
+        print(self.selectedFollowerUser.value?.login)
     }
     
     func downloadImage(with urlString : String){

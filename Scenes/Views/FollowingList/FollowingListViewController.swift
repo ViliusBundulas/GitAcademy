@@ -97,9 +97,7 @@ extension FollowingListViewController: UITableViewDelegate, UITableViewDataSourc
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let a = viewModel.getSelectedFollowing(at: indexPath.row)
-        
-        print("lalalalalallalal ahahahaha \(a)")
+        viewModel.getSelectedFollowingUser(at: indexPath.row)
     }
 }
 
