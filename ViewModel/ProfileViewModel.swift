@@ -25,6 +25,7 @@ class ProfileViewModel {
     var starredRepositories = Observable<[Repository]?>(nil)
     var userFollowers = Observable<[Follower]?>(nil)
     var userFollowing = Observable<[Follower]?>(nil)
+    var user = Observable<Follower?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
     
@@ -82,6 +83,10 @@ class ProfileViewModel {
                 print("Failed to get user followers")
             }
         }
+    }
+    
+    func getSelectedFollowing(at index: Int) {
+        self.user.value = self.userFollowing.value?[index]
     }
     
     func downloadImage(with urlString : String){

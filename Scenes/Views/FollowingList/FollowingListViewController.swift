@@ -95,5 +95,11 @@ extension FollowingListViewController: UITableViewDelegate, UITableViewDataSourc
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         80
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let a = viewModel.getSelectedFollowing(at: indexPath.row)
+        
+        print("lalalalalallalal ahahahaha \(a)")
+    }
 }
 
