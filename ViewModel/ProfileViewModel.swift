@@ -88,12 +88,10 @@ class ProfileViewModel {
     
     func getSelectedFollowingUser(at index: Int) {
         self.selectedFollowingUser.value = self.userFollowing.value?[index]
-        print(self.selectedFollowingUser.value?.login)
     }
     
     func getSelectedFollowerUser(at index: Int) {
         self.selectedFollowerUser.value = self.userFollowers.value?[index]
-        print(self.selectedFollowerUser.value?.login)
     }
     
     func downloadImage(with urlString : String){
