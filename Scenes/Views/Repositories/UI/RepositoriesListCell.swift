@@ -72,7 +72,7 @@ class RepositoriesListCell: UITableViewCell {
             make.top.equalTo(starIcon)
             make.leading.equalTo(starIcon.snp.trailing).offset(5)
             make.height.equalTo(starIcon)
-            make.width.equalTo(30)
+            make.width.equalTo(60)
         }
         
         roundCircle.snp.makeConstraints { make in

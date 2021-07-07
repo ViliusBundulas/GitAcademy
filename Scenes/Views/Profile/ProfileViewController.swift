@@ -48,7 +48,11 @@ class ProfileViewController: BaseViewController {
     //MARK: UI elements
     
     private lazy var repositoriesViewButton: UITapGestureRecognizer = {
-        configureGestureRecogniser()
+        configureRepositoriesGestureRecogniser()
+    }()
+    
+    private lazy var starredRepositoriesViewButton: UITapGestureRecognizer = {
+        configureStarredRepositoriesGestureRecogniser()
     }()
     
     private lazy var userInformationView: UserInformationView = {
@@ -82,6 +86,10 @@ class ProfileViewController: BaseViewController {
         coordinator?.startRepositoriesViewController()
     }
     
+    @objc func starredRepositoriesButtonPressed(sender: UITapGestureRecognizer) {
+        coordinator?.startStarredRepositoriesViewController()
+    }
+    
     @objc func settingsButtonPressed() {
         
     }
@@ -110,6 +118,7 @@ class ProfileViewController: BaseViewController {
         view.addSubview(starredUserRepositoriesView)
         
         userRepositoriesView.addGestureRecognizer(repositoriesViewButton)
+        starredUserRepositoriesView.addGestureRecognizer(starredRepositoriesViewButton)
     }
     
     //MARK: - Setup constrains
@@ -215,8 +224,14 @@ extension ProfileViewController {
         return reposView
     }
     
-    func configureGestureRecogniser() -> UITapGestureRecognizer {
+    func configureRepositoriesGestureRecogniser() -> UITapGestureRecognizer {
         let button = UITapGestureRecognizer(target: self, action: #selector(repositoriesButtonPressed))
+        
+        return button
+    }
+    
+    func configureStarredRepositoriesGestureRecogniser() -> UITapGestureRecognizer {
+        let button = UITapGestureRecognizer(target: self, action: #selector(starredRepositoriesButtonPressed))
         
         return button
     }

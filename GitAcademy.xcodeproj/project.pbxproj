@@ -31,6 +31,7 @@
 		253E092C269068820099A46F /* UserInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092B269068820099A46F /* UserInformationView.swift */; };
 		253E092E2691165A0099A46F /* RepositoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253E092D2691165A0099A46F /* RepositoryListView.swift */; };
 		25546267269471BD0045FD5F /* FollowingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25546266269471BD0045FD5F /* FollowingListViewController.swift */; };
+		255462712696678F0045FD5F /* StarredRepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255462702696678F0045FD5F /* StarredRepositoriesViewController.swift */; };
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
 		2568A88C268B3A8B00821960 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88B268B3A8B00821960 /* UserData.swift */; };
 		2568A88E268B561C00821960 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88D268B561C00821960 /* Observable.swift */; };
@@ -105,6 +106,7 @@
 		253E092B269068820099A46F /* UserInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInformationView.swift; sourceTree = "<group>"; };
 		253E092D2691165A0099A46F /* RepositoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryListView.swift; sourceTree = "<group>"; };
 		25546266269471BD0045FD5F /* FollowingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingListViewController.swift; sourceTree = "<group>"; };
+		255462702696678F0045FD5F /* StarredRepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarredRepositoriesViewController.swift; sourceTree = "<group>"; };
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2568A88B268B3A8B00821960 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2568A88D268B561C00821960 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 		251AEBF22678B65D00AA05BA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				2554626F269667740045FD5F /* StarredRepositories */,
 				2531EFFF2693D74E008DFB52 /* FollowingList */,
 				2531EFFE2693D732008DFB52 /* FollowersList */,
 				2531EFF626938059008DFB52 /* Repositories */,
@@ -352,6 +355,14 @@
 				2531F0052693E9C9008DFB52 /* Follower.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		2554626F269667740045FD5F /* StarredRepositories */ = {
+			isa = PBXGroup;
+			children = (
+				255462702696678F0045FD5F /* StarredRepositoriesViewController.swift */,
+			);
+			path = StarredRepositories;
 			sourceTree = "<group>";
 		};
 		2592D7022685362A004ABBD1 /* ReusableViews */ = {
@@ -574,6 +585,7 @@
 				2568A88C268B3A8B00821960 /* UserData.swift in Sources */,
 				25B5E71626835CC800F4997E /* LoginViewModel.swift in Sources */,
 				25B5E720268368C100F4997E /* GitNetworkReachability.swift in Sources */,
+				255462712696678F0045FD5F /* StarredRepositoriesViewController.swift in Sources */,
 				2592D6FD26852AA3004ABBD1 /* BaseViewController.swift in Sources */,
 				25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */,
 				2531EFF526933BF9008DFB52 /* StarredRepositories.swift in Sources */,

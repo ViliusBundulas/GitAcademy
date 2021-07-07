@@ -52,4 +52,10 @@ class MainCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func startStarredRepositoriesViewController() {
+        let vc = viewControllersFactory.makeStarredRepositoriesViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: true)
+    }
 }
