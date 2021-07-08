@@ -17,10 +17,11 @@ enum GitRouter {
     case fetchUserData
     case fetchUserFollowers
     case fetchUserFollowing
+    case fetchFollowers(String)
     
     var baseURL: String {
         switch self {
-        case .fetchUserRepositories, .searchRepositories, .fetchCommits, .fetchUserData, .fetchStarredRepositories, .fetchUserFollowers, .fetchUserFollowing:
+        case .fetchUserRepositories, .searchRepositories, .fetchCommits, .fetchUserData, .fetchStarredRepositories, .fetchUserFollowers, .fetchUserFollowing, .fetchFollowers:
             return "https://api.github.com"
         case .fetchAccessToken:
             return "https://github.com"
@@ -45,6 +46,8 @@ enum GitRouter {
             return "/user/followers"
         case .fetchUserFollowing:
             return "/user/following"
+        case .fetchFollowers(let login):
+            return "users/\(login)/followers"
         }
     }
     
@@ -66,6 +69,8 @@ enum GitRouter {
             return .get
         case .fetchUserFollowing:
             return .get
+        case .fetchFollowers:
+            return .get
         }
     }
     
@@ -80,6 +85,8 @@ enum GitRouter {
         case .fetchUserRepositories:
             return ["per_page": "100"]
         case .fetchUserFollowing:
+            return ["per_page": "100"]
+        case .fetchFollowers:
             return ["per_page": "100"]
         case .searchRepositories(let query):
             return ["sort": "stars", "order": "desc", "page": "1", "q": query]
