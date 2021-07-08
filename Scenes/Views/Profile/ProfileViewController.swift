@@ -79,7 +79,8 @@ class ProfileViewController: BaseViewController {
     //MARK: - Button actions
     
     @objc func logoutButtonPressed() {
-        
+        viewModel.logout()
+        coordinator?.dismiss()
     }
     
     @objc func repositoriesButtonPressed(sender: UITapGestureRecognizer) {
