@@ -27,6 +27,7 @@ class ProfileViewModel {
     var userFollowing = Observable<[Follower]?>(nil)
     var selectedFollowingUser = Observable<Follower?>(nil)
     var selectedFollowerUser = Observable<Follower?>(nil)
+    var selectedUserRepository = Observable<Repository?>(nil)
     
     func logout() {
         self.tokenManager.clearAccessToken()
@@ -94,6 +95,10 @@ class ProfileViewModel {
     
     func getSelectedFollowerUser(at index: Int) {
         self.selectedFollowerUser.value = self.userFollowers.value?[index]
+    }
+    
+    func getSelectedRepositoryFromUserRepositories(at index: Int) {
+        self.selectedUserRepository.value = self.repositories.value?[index]
     }
     
     func downloadImage(with urlString : String){

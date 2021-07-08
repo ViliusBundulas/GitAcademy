@@ -58,4 +58,10 @@ class MainCoordinator: CoordinatorProtocol {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: true)
     }
+    
+    func startRepositoryViewController() {
+        let vc = viewControllersFactory.makeRepositoryViewController()
+        vc.coordinator = self
+        navigationController.present(vc, animated: true)
+    }
 }

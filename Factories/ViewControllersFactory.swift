@@ -14,6 +14,7 @@ protocol ViewControllersFactory {
     func makeFollowersListViewController() -> FollowersListViewController
     func makeFollowingListViewController() -> FollowingListViewController
     func makeStarredRepositoriesViewController() -> StarredRepositoriesViewController
+    func makeRepositoryViewController() -> RepositoryViewController
 }
 
 extension DependencyContainer: ViewControllersFactory {
@@ -45,5 +46,10 @@ extension DependencyContainer: ViewControllersFactory {
     func makeStarredRepositoriesViewController() -> StarredRepositoriesViewController {
         let viewModel = ProfileViewModel(gitApiManager: gitApiManager, tokenManager: tokenManager)
         return StarredRepositoriesViewController(viewModel: viewModel)
+    }
+    
+    func makeRepositoryViewController() -> RepositoryViewController {
+        let viewModel = ProfileViewModel(gitApiManager: gitApiManager, tokenManager: tokenManager)
+        return RepositoryViewController(viewModel: viewModel)
     }
 }

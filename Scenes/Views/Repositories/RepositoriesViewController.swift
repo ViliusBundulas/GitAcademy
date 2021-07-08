@@ -99,6 +99,12 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         90
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.getSelectedRepositoryFromUserRepositories(at: indexPath.row)
+        coordinator?.startRepositoryViewController()
+//        print(viewModel.selectedUserRepository.value?.owner.login)
+    }
 }
 
 //class SelfSizingTableView: UITableView {
