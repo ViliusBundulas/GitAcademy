@@ -9,8 +9,9 @@ import Foundation
 import UIKit
 import Alamofire
 
+
+
 class GitAPIManager {
-    //  static let shared = GitAPIManager()
     
     let sessionManager: Session = {
         let configuration = URLSessionConfiguration.af.default
