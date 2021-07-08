@@ -9,7 +9,14 @@ import Foundation
 import UIKit
 import Alamofire
 
-
+protocol GitAPIManagerProtocol {
+    func fetchUserRepositories(completion: @escaping (AFResult<[Repository]>) -> Void)
+    func fetchUserData(completion: @escaping (AFResult<UserData>) -> Void)
+    func fetchStarredRepositories(completion: @escaping (AFResult<[Repository]>) -> Void)
+    func fetchUserFollowers(completion: @escaping (AFResult<[Follower]>) -> Void)
+    func fetchUserFollowing(completion: @escaping (AFResult<[Follower]>) -> Void)
+    func fetchFollowers(of user: String, completion: @escaping (AFResult<[Follower]>) -> Void)
+}
 
 class GitAPIManager {
     

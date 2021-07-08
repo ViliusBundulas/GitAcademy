@@ -34,6 +34,7 @@
 		25653D76268C9C0100E1CB8D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */; };
 		2568A88C268B3A8B00821960 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88B268B3A8B00821960 /* UserData.swift */; };
 		2568A88E268B561C00821960 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2568A88D268B561C00821960 /* Observable.swift */; };
+		258900D726975E7200229177 /* GitAPIMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258900D626975E7200229177 /* GitAPIMock.swift */; };
 		2592D6FB2685291A004ABBD1 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2592D6FA2685291A004ABBD1 /* SnapKit */; };
 		2592D6FD26852AA3004ABBD1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D6FC26852AA3004ABBD1 /* BaseViewController.swift */; };
 		2592D6FF26852B22004ABBD1 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D6FE26852B22004ABBD1 /* BaseView.swift */; };
@@ -107,6 +108,7 @@
 		25653D75268C9C0100E1CB8D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		2568A88B268B3A8B00821960 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		2568A88D268B561C00821960 /* Observable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
+		258900D626975E7200229177 /* GitAPIMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitAPIMock.swift; sourceTree = "<group>"; };
 		2592D6FC26852AA3004ABBD1 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		2592D6FE26852B22004ABBD1 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		2592D700268535A3004ABBD1 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -205,6 +207,8 @@
 		251AEBD42678943700AA05BA /* GitAcademyTests */ = {
 			isa = PBXGroup;
 			children = (
+				258900D526975E5600229177 /* Mocks */,
+				258900D426975E4D00229177 /* ViewModel */,
 				251AEBD52678943700AA05BA /* GitAcademyTests.swift */,
 				251AEBD72678943700AA05BA /* Info.plist */,
 			);
@@ -357,6 +361,21 @@
 				255462702696678F0045FD5F /* StarredRepositoriesViewController.swift */,
 			);
 			path = StarredRepositories;
+			sourceTree = "<group>";
+		};
+		258900D426975E4D00229177 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		258900D526975E5600229177 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				258900D626975E7200229177 /* GitAPIMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		2592D7022685362A004ABBD1 /* ReusableViews */ = {
@@ -597,6 +616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				251AEBD62678943700AA05BA /* GitAcademyTests.swift in Sources */,
+				258900D726975E7200229177 /* GitAPIMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
