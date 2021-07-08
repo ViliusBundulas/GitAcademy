@@ -82,6 +82,16 @@ class LoginViewController: BaseViewController {
                 self.activityIndicatorView.stopAnimating()
             }
         }
+        
+        viewModel.onUserLoggedIn = { [unowned self] in
+            coordinator?.startProfileViewController()
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.start()
     }
     
     //MARK: - Setup constrains

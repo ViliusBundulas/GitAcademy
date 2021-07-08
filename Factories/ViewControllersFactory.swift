@@ -23,7 +23,7 @@ extension DependencyContainer: ViewControllersFactory {
     }
     
     func makeLoginViewController() -> LoginViewController {
-        let viewModel = LoginViewModel(gitApiManager: gitApiManager)
+        let viewModel = LoginViewModel(gitApiManager: gitApiManager, tokenManager: tokenManager)
         return LoginViewController(viewModel: viewModel)
     }
     

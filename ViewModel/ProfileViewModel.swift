@@ -29,6 +29,9 @@ class ProfileViewModel {
     var selectedFollowerUser = Observable<Follower?>(nil)
     var isLoggedIn = Observable<Bool?>(nil)
     
+    func logout() {
+        self.tokenManager.clearAccessToken()
+    }
     
     func getUserData() {
         self.gitApiManager.fetchUserData { result in
