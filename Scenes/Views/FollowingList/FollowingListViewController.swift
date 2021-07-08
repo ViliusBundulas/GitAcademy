@@ -14,6 +14,7 @@ class FollowingListViewController: BaseViewController {
     weak var coordinator: MainCoordinator?
     
     private let viewModel: ProfileViewModel
+    private let gitAPIManager = GitAPIManager()
     
     init(viewModel: ProfileViewModel) {
         self.viewModel = viewModel
@@ -82,8 +83,16 @@ extension FollowingListViewController: UITableViewDelegate, UITableViewDataSourc
         let cell = tableView.dequeueReusableCell(withIdentifier: "FollowersListCell", for: indexPath) as! FollowersListCell
         
         cell.username.text = viewModel.userFollowing.value?[indexPath.row].login
-        cell.numberOfFollowers.text = "\(viewModel.userFollowing.value?[indexPath.row].id ?? 6969)"
         cell.userPicture.kf.setImage(with: URL(string: viewModel.userFollowing.value?[indexPath.row].avatarURL ?? "a"))
+        
+        gitAPIManager.fetchFollowers(of: viewModel.userFollowing.value?[indexPath.row].login ?? "") { result in
+            switch result {
+            case .success(let followers):
+                cell.numberOfFollowers.text = "\(followers.count) followers"
+            case .failure:
+                print("Failed to get number of followers")
+            }
+        }
 
         return cell
     }

@@ -98,6 +98,7 @@ extension FollowersListCell {
     
     func configureNumberOfFollowersLabel() {
         self.numberOfFollowers.textColor = .white.withAlphaComponent(0.8)
+        self.numberOfFollowers.textAlignment = .right
     }
     
     func configureUsernameLabel() {
