@@ -34,20 +34,6 @@ class GitAPIManager {
             eventMonitors: [networkLogger])
     }()
     
-    func fetchPopularSwiftRepositories(completion: @escaping ([Repository]) -> Void) {
-        searchRepositories(query: "language:Swift", completion: completion)
-    }
-    
-    func fetchCommits(for repository: String, completion: @escaping ([Commit]) -> Void) {
-        sessionManager.request(GitRouter.fetchCommits(repository))
-            .responseDecodable(of: [Commit].self) { response in
-                guard let commits = response.value else {
-                    return
-                }
-                completion(commits)
-            }
-    }
-    
     func searchRepositories(query: String, completion: @escaping ([Repository]) -> Void) {
         sessionManager.request(GitRouter.searchRepositories(query))
             .responseDecodable(of: Repositories.self) { response in

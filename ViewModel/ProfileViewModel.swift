@@ -27,7 +27,6 @@ class ProfileViewModel {
     var userFollowing = Observable<[Follower]?>(nil)
     var selectedFollowingUser = Observable<Follower?>(nil)
     var selectedFollowerUser = Observable<Follower?>(nil)
-    var isLoggedIn = Observable<Bool?>(nil)
     
     func logout() {
         self.tokenManager.clearAccessToken()
