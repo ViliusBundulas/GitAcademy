@@ -32,9 +32,6 @@ class UserInformationView: BaseView {
     override init() {
         
         self.avatarViewContainer = UIView()
-        self.avatarViewContainer.layer.masksToBounds = false
-        self.avatarViewContainer.layer.cornerRadius = 75
-        self.avatarViewContainer.clipsToBounds = true
         
         self.avatarView = UIImageView()
         self.avatarView.clipsToBounds = true
@@ -102,6 +99,14 @@ class UserInformationView: BaseView {
         followingContainer.addSubview(followingLabel)
         followingContainer.addSubview(followingNumberLabel)
         followingContainer.addGestureRecognizer(followingTapGesture)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.avatarViewContainer.layer.masksToBounds = false
+        self.avatarViewContainer.layer.cornerRadius = self.avatarViewContainer.frame.height / 2
+        self.avatarViewContainer.clipsToBounds = true
     }
     
     //MARK: - Setup constrains

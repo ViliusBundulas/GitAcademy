@@ -35,15 +35,6 @@ class RepositoryViewController: BaseViewController {
         return view
     }()
     
-    private lazy var testLabel: UILabel = {
-       let label = UILabel()
-        label.text = "Labas dienas"
-        label.textColor = .white
-        label.textAlignment = .center
-        
-        return label
-    }()
-    
     //MARK: - Observable data binding
     
     private func bindViewModel() {

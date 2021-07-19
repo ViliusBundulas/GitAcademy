@@ -24,10 +24,6 @@ class FollowersListCell: UITableViewCell {
         configureCell()
     }
     
-    func setImage(url: String) {
-        self.userPicture.kf.setImage(with: URL(string: url))
-    }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -40,12 +36,11 @@ class FollowersListCell: UITableViewCell {
         self.contentView.addSubview(username)
         self.contentView.addSubview(numberOfFollowers)
         
-        self.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
+        self.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1176470588, blue: 0.137254902, alpha: 1)
         
         configureUserPicture()
         configureNumberOfFollowersLabel()
         configureUsernameLabel()
-        configureUserPictureContainer()
         
         setupConstrains()
     }
@@ -81,6 +76,12 @@ class FollowersListCell: UITableViewCell {
             make.trailing.equalTo(numberOfFollowers.snp.leading).inset(10)
         }
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        configureUserPictureContainer()
+    }
 }
 
 extension FollowersListCell {
@@ -92,7 +93,7 @@ extension FollowersListCell {
     
     func configureUserPictureContainer() {
         self.userPictureContainer.layer.masksToBounds = false
-        self.userPictureContainer.layer.cornerRadius = 30
+        self.userPictureContainer.layer.cornerRadius = self.userPictureContainer.frame.width / 2
         self.userPictureContainer.clipsToBounds = true
     }
     
