@@ -29,7 +29,6 @@ class RepositoryViewController: BaseViewController {
         let view = RepositoryView()
         view.ownerImage.backgroundColor = .blue
         view.ownerImageContainer.backgroundColor = .green
-        view.backgroundColor = .systemGray2
         
         view.ownerNameLabel.backgroundColor = .red
         

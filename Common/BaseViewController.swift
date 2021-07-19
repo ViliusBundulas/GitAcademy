@@ -15,6 +15,7 @@ class BaseViewController: UIViewController {
         setupView()
         setupConstrains()
         configureNavigationController()
+        view.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1176470588, blue: 0.137254902, alpha: 1)
     }
     
     func setupView() {}

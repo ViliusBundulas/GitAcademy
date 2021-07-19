@@ -51,8 +51,6 @@ class RepositoriesViewController: BaseViewController {
         
         bindViewModel()
         
-        view.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
-        
         repositoryListTableView.delegate = self
         repositoryListTableView.dataSource = self
         
