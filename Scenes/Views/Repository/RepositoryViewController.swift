@@ -49,11 +49,7 @@ class RepositoryViewController: BaseViewController {
     
     private func bindViewModel() {
         viewModel.selectedUserRepository.bind { repository in
-            if repository?.owner.login != nil {
-                self.testLabel.text = repository?.owner.login
-            } else {
-                self.testLabel.text = "You can do this!"
-            }
+                self.repositoryView.ownerNameLabel.text = repository?.owner.login
         }
     }
     
@@ -64,27 +60,16 @@ class RepositoryViewController: BaseViewController {
         
         bindViewModel()
         
-//        view.addSubview(repositoryView)
-        view.addSubview(testLabel)
+        view.addSubview(repositoryView)
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        <#code#>
-//    }
     
     //MARK: - setup constrains
     
     override func setupConstrains() {
         super.setupConstrains()
         
-//        repositoryView.snp.makeConstraints { make in
-//            make.leading.trailing.top.bottom.equalTo(view)
-//        }
-        
-        testLabel.snp.makeConstraints { make in
-            make.centerX.centerY.equalTo(view)
-            make.leading.trailing.equalTo(view)
-            make.height.equalTo(50)
+        repositoryView.snp.makeConstraints { make in
+            make.leading.trailing.top.bottom.equalTo(view)
         }
     }
 }

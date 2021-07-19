@@ -104,24 +104,5 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.getSelectedRepositoryFromUserRepositories(at: indexPath.row)
         coordinator?.startRepositoryViewController(repository: viewModel.selectedUserRepository.value!)
-        print(viewModel.selectedUserRepository.value?.owner.login)
-        print(viewModel.selectedUserRepository.value?.owner.login)
     }
 }
-
-//class SelfSizingTableView: UITableView {
-//    override var intrinsicContentSize: CGSize {
-//        // AutoLayout uses intrinsicContentSize.height
-//        // instead of heightConstraint to determine
-//        // element height in UI
-//        return contentSize
-//    }
-//
-//    override var contentSize: CGSize {
-//        didSet {
-//            // When content size changes, force recalculation of
-//            // intristic content size
-//            invalidateIntrinsicContentSize()
-//        }
-//    }
-//}
