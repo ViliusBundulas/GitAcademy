@@ -4,7 +4,7 @@ struct Repository: Codable {
     let name: String
     let fullName: String
     let description: String?
-    let language: String
+    let language: String?
     let stars: Int
     let owner: RepositoryOwner
     
