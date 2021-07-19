@@ -36,11 +36,24 @@ class RepositoryViewController: BaseViewController {
         return view
     }()
     
+    private lazy var testLabel: UILabel = {
+       let label = UILabel()
+        label.text = "Labas dienas"
+        label.textColor = .white
+        label.textAlignment = .center
+        
+        return label
+    }()
+    
     //MARK: - Observable data binding
     
     private func bindViewModel() {
-        viewModel.selectedUserRepository.bind { [unowned self ]repository in
-            self.repositoryView.ownerNameLabel.text = repository?.owner.login
+        viewModel.selectedUserRepository.bind { repository in
+            if repository?.owner.login != nil {
+                self.testLabel.text = repository?.owner.login
+            } else {
+                self.testLabel.text = "You can do this!"
+            }
         }
     }
     
@@ -51,16 +64,27 @@ class RepositoryViewController: BaseViewController {
         
         bindViewModel()
         
-        view.addSubview(repositoryView)
+//        view.addSubview(repositoryView)
+        view.addSubview(testLabel)
     }
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        <#code#>
+//    }
     
     //MARK: - setup constrains
     
     override func setupConstrains() {
         super.setupConstrains()
         
-        repositoryView.snp.makeConstraints { make in
-            make.leading.trailing.top.bottom.equalTo(view)
+//        repositoryView.snp.makeConstraints { make in
+//            make.leading.trailing.top.bottom.equalTo(view)
+//        }
+        
+        testLabel.snp.makeConstraints { make in
+            make.centerX.centerY.equalTo(view)
+            make.leading.trailing.equalTo(view)
+            make.height.equalTo(50)
         }
     }
 }

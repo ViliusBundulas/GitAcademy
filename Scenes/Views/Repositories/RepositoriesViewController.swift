@@ -29,6 +29,7 @@ class RepositoriesViewController: BaseViewController {
         viewModel.repositories.bind { [unowned self] items in
             self.repositoryListTableView.reloadData()
         }
+        
     }
     
     //MARK: - UI elements
@@ -102,8 +103,9 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.getSelectedRepositoryFromUserRepositories(at: indexPath.row)
-        coordinator?.startRepositoryViewController()
-//        print(viewModel.selectedUserRepository.value?.owner.login)
+        coordinator?.startRepositoryViewController(repository: viewModel.selectedUserRepository.value!)
+        print(viewModel.selectedUserRepository.value?.owner.login)
+        print(viewModel.selectedUserRepository.value?.owner.login)
     }
 }
 

@@ -59,9 +59,9 @@ class MainCoordinator: CoordinatorProtocol {
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func startRepositoryViewController() {
-        let vc = viewControllersFactory.makeRepositoryViewController()
+    func startRepositoryViewController(repository: Repository) {
+        let vc = viewControllersFactory.makeRepositoryViewController(repository: repository)
         vc.coordinator = self
-        navigationController.present(vc, animated: true)
+        navigationController.present(vc, animated: true, completion: nil)
     }
 }
