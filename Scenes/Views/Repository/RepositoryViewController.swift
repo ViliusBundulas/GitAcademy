@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Kingfisher
 
 class RepositoryViewController: BaseViewController {
     
@@ -30,7 +31,6 @@ class RepositoryViewController: BaseViewController {
         view.ownerImage.backgroundColor = .blue
         view.ownerImageContainer.backgroundColor = .green
         
-        view.ownerNameLabel.backgroundColor = .red
         
         return view
     }()
@@ -39,7 +39,10 @@ class RepositoryViewController: BaseViewController {
     
     private func bindViewModel() {
         viewModel.selectedUserRepository.bind { repository in
-                self.repositoryView.ownerNameLabel.text = repository?.owner.login
+            self.repositoryView.ownerNameLabel.text = repository?.owner.login
+            self.repositoryView.ownerImage.kf.setImage(with: URL(string: repository?.owner.avatarURL ?? ""))
+            self.repositoryView.repositoryNameLabel.text = repository?.name
+            self.repositoryView.repositoryDescriptionLabel.text = repository?.description
         }
     }
     

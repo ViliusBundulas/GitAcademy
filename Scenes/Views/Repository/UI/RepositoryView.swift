@@ -55,6 +55,19 @@ class RepositoryView: BaseView {
         self.addSubview(starCountLabel)
         self.addSubview(starButton)
         self.addSubview(languageLabel)
+        
+        configureOwnerNameLabel()
+        configureRepositoryNameLabel()
+        configureRepositoryDescriptionLabel()
+    }
+    
+    //MARK: - Layout subviews
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        configureOwnerImage()
+        configureOwnerImageContainer()
     }
     
     //MARK: Setup constrains
@@ -65,13 +78,13 @@ class RepositoryView: BaseView {
         ownerImageContainer.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).offset(10)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(10)
-            make.width.height.equalTo(60)
+            make.width.height.equalTo(40)
         }
         
         ownerImage.snp.makeConstraints { make in
             make.top.equalTo(self.safeAreaLayoutGuide).offset(10)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(10)
-            make.width.height.equalTo(60)
+            make.width.height.equalTo(40)
         }
         
         ownerNameLabel.snp.makeConstraints { make in
@@ -79,8 +92,23 @@ class RepositoryView: BaseView {
             make.leading.equalTo(ownerImageContainer.snp.trailing).offset(10)
             make.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
         }
+        
+        repositoryNameLabel.snp.makeConstraints { make in
+            make.top.equalTo(ownerImageContainer.snp.bottom)
+            make.leading.equalTo(self.safeAreaLayoutGuide).offset(10)
+            make.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.height.equalTo(60)
+        }
+        
+        repositoryDescriptionLabel.snp.makeConstraints { make in
+            make.top.equalTo(repositoryNameLabel.snp.bottom)
+            make.leading.trailing.equalTo(repositoryNameLabel)
+            make.height.equalTo(ownerNameLabel)
+        }
     }
 }
+
+    //MARK: - View configurations
 
 extension RepositoryView {
     
@@ -91,7 +119,20 @@ extension RepositoryView {
     
     func configureOwnerImageContainer() {
         self.ownerImageContainer.layer.masksToBounds = false
-        self.ownerImageContainer.layer.cornerRadius = 30
+        self.ownerImageContainer.layer.cornerRadius = self.ownerImageContainer.frame.height / 2
         self.ownerImageContainer.clipsToBounds = true
+    }
+    
+    func configureOwnerNameLabel() {
+        self.ownerNameLabel.textColor = .white.withAlphaComponent(0.8)
+    }
+    
+    func configureRepositoryNameLabel() {
+        self.repositoryNameLabel.font = repositoryNameLabel.font.withSize(40)
+        self.repositoryNameLabel.textColor = .white
+    }
+    
+    func configureRepositoryDescriptionLabel() {
+        self.repositoryDescriptionLabel.textColor = .white
     }
 }
