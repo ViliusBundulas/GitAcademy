@@ -43,6 +43,7 @@ class RepositoryViewController: BaseViewController {
             self.repositoryView.ownerImage.kf.setImage(with: URL(string: repository?.owner.avatarURL ?? ""))
             self.repositoryView.repositoryNameLabel.text = repository?.name
             self.repositoryView.repositoryDescriptionLabel.text = repository?.description
+            self.repositoryView.starCountLabel.text = "\(repository?.stars ?? 666) stars"
         }
     }
     

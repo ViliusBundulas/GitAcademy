@@ -59,6 +59,8 @@ class RepositoryView: BaseView {
         configureOwnerNameLabel()
         configureRepositoryNameLabel()
         configureRepositoryDescriptionLabel()
+        configureStarIcon()
+        configureStraCountLabel()
     }
     
     //MARK: - Layout subviews
@@ -105,6 +107,19 @@ class RepositoryView: BaseView {
             make.leading.trailing.equalTo(repositoryNameLabel)
             make.height.equalTo(ownerNameLabel)
         }
+        
+        starIcon.snp.makeConstraints { make in
+            make.top.equalTo(repositoryDescriptionLabel.snp.bottom).offset(20)
+            make.leading.equalTo(repositoryDescriptionLabel)
+            make.height.width.equalTo(15)
+        }
+        
+        starCountLabel.snp.makeConstraints { make in
+            make.leading.equalTo(starIcon.snp.trailing).offset(5)
+            make.top.equalTo(starIcon)
+            make.height.equalTo(starIcon)
+            make.width.equalTo(200)
+        }
     }
 }
 
@@ -134,5 +149,15 @@ extension RepositoryView {
     
     func configureRepositoryDescriptionLabel() {
         self.repositoryDescriptionLabel.textColor = .white
+    }
+    
+    func configureStarIcon() {
+        self.starIcon.image = #imageLiteral(resourceName: "starred").withRenderingMode(.alwaysTemplate)
+        self.starIcon.tintColor = .white.withAlphaComponent(0.7)
+    }
+    
+    func configureStraCountLabel() {
+        self.starCountLabel.textColor = .white
+        self.starCountLabel.font = self.starCountLabel.font.withSize(15)
     }
 }
