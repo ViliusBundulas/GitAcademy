@@ -104,7 +104,7 @@ class RepositoryView: BaseView {
             make.top.equalTo(ownerImageContainer.snp.bottom)
             make.leading.equalTo(self.safeAreaLayoutGuide).offset(10)
             make.trailing.equalTo(self.safeAreaLayoutGuide).inset(10)
-            make.height.equalTo(60)
+            make.height.greaterThanOrEqualTo(0)
         }
         
         repositoryDescriptionLabel.snp.makeConstraints { make in
@@ -163,6 +163,7 @@ extension RepositoryView {
     func configureRepositoryNameLabel() {
         self.repositoryNameLabel.font = repositoryNameLabel.font.withSize(40)
         self.repositoryNameLabel.textColor = .white
+        self.repositoryNameLabel.numberOfLines = 0
     }
     
     func configureRepositoryDescriptionLabel() {
