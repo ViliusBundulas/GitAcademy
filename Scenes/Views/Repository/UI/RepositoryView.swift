@@ -10,39 +10,19 @@ import UIKit
 
 class RepositoryView: BaseView {
     
-    
     //MARK: - UI elements
     
-    let ownerImage: UIImageView
-    let ownerImageContainer: UIView
-    let ownerNameLabel: UILabel
-    let repositoryNameLabel: UILabel
-    let repositoryDescriptionLabel: UILabel
-    let starIcon: UIImageView
-    let starCountLabel: UILabel
-    let starButton: UIButton
-    let languageLabel: UILabel
-    let roundOrangeCircle: UIView
-    
-    override init() {
-        self.ownerImage = UIImageView()
-        self.ownerImageContainer = UIView()
-        self.ownerNameLabel = UILabel()
-        self.repositoryNameLabel = UILabel()
-        self.repositoryDescriptionLabel = UILabel()
-        self.starIcon = UIImageView()
-        self.starCountLabel = UILabel()
-        self.starButton = UIButton()
-        self.roundOrangeCircle = UIView()
-        self.languageLabel = UILabel()
-        
-        super.init()
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
+    let ownerImage = UIImageView()
+    let ownerImageContainer = UIView()
+    let ownerNameLabel = UILabel()
+    let repositoryNameLabel = UILabel()
+    let repositoryDescriptionLabel = UILabel()
+    let starIcon = UIImageView()
+    let starCountLabel = UILabel()
+    let starButton = UIButton()
+    let languageLabel = UILabel()
+    let roundOrangeCircle = UIView()
+
     //MARK: Setup views
     
     override func setupView() {
