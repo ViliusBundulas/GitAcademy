@@ -102,5 +102,6 @@ extension RepositoriesViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         viewModel.getSelectedRepositoryFromUserRepositories(at: indexPath.row)
         coordinator?.startRepositoryViewController(repository: viewModel.selectedUserRepository.value!)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

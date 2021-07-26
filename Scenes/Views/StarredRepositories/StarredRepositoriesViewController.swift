@@ -75,6 +75,7 @@ class StarredRepositoriesViewController: BaseViewController {
 }
 
 extension StarredRepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         viewModel.starredRepositories.value?.count ?? 10
     }
@@ -96,5 +97,9 @@ extension StarredRepositoriesViewController: UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
         90
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
