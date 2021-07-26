@@ -45,6 +45,12 @@ class RepositoriesListCell: UITableViewCell {
         setupConstrains()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        configureOrangeCircle()
+    }
+    
     //MARK: - Setup constrains
     
     func setupConstrains() {
@@ -95,7 +101,7 @@ class RepositoriesListCell: UITableViewCell {
 extension RepositoriesListCell {
     
     func configureUIElements() {
-        self.backgroundColor = UIColor(red: 28.0/255, green: 30.0/255, blue: 35.0/255, alpha: 1.0)
+        self.backgroundColor = #colorLiteral(red: 0.1098039216, green: 0.1176470588, blue: 0.137254902, alpha: 1)
         
         self.name.textColor = .white
         self.repositoryDescription.textColor = .white.withAlphaComponent(0.7)
@@ -103,9 +109,12 @@ extension RepositoriesListCell {
         self.starIcon.tintColor = .white.withAlphaComponent(0.7)
         self.starIcon.contentMode = .scaleAspectFit
         self.starCountLabel.textColor = .white.withAlphaComponent(0.5)
-        self.roundCircle.backgroundColor = .orange.withAlphaComponent(0.9)
-        self.roundCircle.layer.cornerRadius = 5
-        self.roundCircle.clipsToBounds = true
         self.language.textColor = .white.withAlphaComponent(0.5)
+    }
+    
+    func configureOrangeCircle() {
+        self.roundCircle.backgroundColor = .orange.withAlphaComponent(0.9)
+        self.roundCircle.layer.cornerRadius = self.roundCircle.frame.height / 2
+        self.roundCircle.clipsToBounds = true
     }
 }

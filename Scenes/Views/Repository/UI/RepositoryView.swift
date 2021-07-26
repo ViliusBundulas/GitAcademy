@@ -22,6 +22,7 @@ class RepositoryView: BaseView {
     let starCountLabel: UILabel
     let starButton: UIButton
     let languageLabel: UILabel
+    let roundOrangeCircle: UIView
     
     override init() {
         self.ownerImage = UIImageView()
@@ -32,6 +33,7 @@ class RepositoryView: BaseView {
         self.starIcon = UIImageView()
         self.starCountLabel = UILabel()
         self.starButton = UIButton()
+        self.roundOrangeCircle = UIView()
         self.languageLabel = UILabel()
         
         super.init()
@@ -55,12 +57,14 @@ class RepositoryView: BaseView {
         self.addSubview(starCountLabel)
         self.addSubview(starButton)
         self.addSubview(languageLabel)
+        self.addSubview(roundOrangeCircle)
         
         configureOwnerNameLabel()
         configureRepositoryNameLabel()
         configureRepositoryDescriptionLabel()
         configureStarIcon()
         configureStraCountLabel()
+        configureLanguageLabel()
     }
     
     //MARK: - Layout subviews
@@ -70,6 +74,7 @@ class RepositoryView: BaseView {
         
         configureOwnerImage()
         configureOwnerImageContainer()
+        configureOrangeCircle()
     }
     
     //MARK: Setup constrains
@@ -118,7 +123,20 @@ class RepositoryView: BaseView {
             make.leading.equalTo(starIcon.snp.trailing).offset(5)
             make.top.equalTo(starIcon)
             make.height.equalTo(starIcon)
-            make.width.equalTo(200)
+            make.width.equalTo(100)
+        }
+        
+        roundOrangeCircle.snp.makeConstraints { make in
+            make.leading.equalTo(starCountLabel.snp.trailing)
+            make.height.width.equalTo(starIcon)
+            make.top.bottom.equalTo(starIcon)
+        }
+        
+        languageLabel.snp.makeConstraints { make in
+            make.top.equalTo(starCountLabel)
+            make.leading.equalTo(roundOrangeCircle.snp.trailing).offset(10)
+            make.height.equalTo(starCountLabel)
+            make.trailing.equalTo(self.safeAreaLayoutGuide)
         }
     }
 }
@@ -159,5 +177,16 @@ extension RepositoryView {
     func configureStraCountLabel() {
         self.starCountLabel.textColor = .white
         self.starCountLabel.font = self.starCountLabel.font.withSize(15)
+    }
+    
+    func configureOrangeCircle() {
+        self.roundOrangeCircle.backgroundColor = .orange.withAlphaComponent(0.9)
+        self.roundOrangeCircle.layer.cornerRadius = self.roundOrangeCircle.frame.height / 2
+        self.roundOrangeCircle.clipsToBounds = true
+    }
+    
+    func configureLanguageLabel() {
+        self.languageLabel.textColor = .white
+        self.languageLabel.font = self.languageLabel.font.withSize(15)
     }
 }

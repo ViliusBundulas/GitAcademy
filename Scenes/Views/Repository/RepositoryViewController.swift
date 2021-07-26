@@ -44,6 +44,7 @@ class RepositoryViewController: BaseViewController {
             self.repositoryView.repositoryNameLabel.text = repository?.name
             self.repositoryView.repositoryDescriptionLabel.text = repository?.description
             self.repositoryView.starCountLabel.text = "\(repository?.stars ?? 666) stars"
+            self.repositoryView.languageLabel.text = repository?.language
         }
     }
     
