@@ -101,6 +101,10 @@ class ProfileViewModel {
         self.selectedUserRepository.value = self.repositories.value?[index]
     }
     
+    func getSelectedRepositoryFromStarredRepositories(at index: Int) {
+        self.selectedUserRepository.value = self.starredRepositories.value?[index]
+    }
+    
     func downloadImage(with urlString : String){
         guard let url = URL.init(string: urlString) else {
             return

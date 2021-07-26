@@ -74,6 +74,8 @@ class StarredRepositoriesViewController: BaseViewController {
     }
 }
 
+    //MARK: - UITableView configurations
+
 extension StarredRepositoriesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,6 +102,8 @@ extension StarredRepositoriesViewController: UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.getSelectedRepositoryFromStarredRepositories(at: indexPath.row)
+        coordinator?.startRepositoryViewController(repository: viewModel.selectedUserRepository.value!)
         tableView.deselectRow(at: indexPath, animated: true)
     }
 }
