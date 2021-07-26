@@ -110,7 +110,7 @@ class RepositoryView: BaseView {
         repositoryDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(repositoryNameLabel.snp.bottom)
             make.leading.trailing.equalTo(repositoryNameLabel)
-            make.height.equalTo(ownerNameLabel)
+            make.height.greaterThanOrEqualTo(0)
         }
         
         starIcon.snp.makeConstraints { make in
@@ -167,6 +167,7 @@ extension RepositoryView {
     
     func configureRepositoryDescriptionLabel() {
         self.repositoryDescriptionLabel.textColor = .white
+        self.repositoryDescriptionLabel.numberOfLines = 0
     }
     
     func configureStarIcon() {
